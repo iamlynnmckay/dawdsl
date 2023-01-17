@@ -1,0 +1,30 @@
+{
+  "transport": {
+    "lines_per_beat": 12
+  },
+  "instruments": [
+    {
+      "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Drums/GMKit - Analog Plastic.xrni"
+    }
+  ],
+  "tracks": [
+    {
+      "effects_columns": 0,
+      "note_columns": 2
+    }
+  ],
+  "patterns": [
+    {
+      "_duration": 8
+    }
+  ],
+  "data": [
+    {
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "_repeat": 16,
+      "note_column": 1,
+      "note_string": [ "C-4" ],
+      "_duration": [ 1 ]
+    }
+  ]
+}

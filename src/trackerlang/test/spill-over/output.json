@@ -1,0 +1,205 @@
+{
+  "tracks": [
+    {
+      "effects_columns": 0,
+      "note_columns": 2
+    }
+  ],
+  "patterns": [
+    {
+      "lines": 96
+    },
+    {
+      "lines": 96
+    },
+    {
+      "lines": 96
+    }
+  ],
+  "transport": {
+    "lines_per_beat": 12
+  },
+  "data": [
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 0,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 0
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 0,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 12
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 0,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 24
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 0,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 36
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 0,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 48
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 0,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 60
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 0,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 72
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 0,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 84
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 1,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 0
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 1,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 12
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 1,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 24
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 1,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 36
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 1,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 48
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 1,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 60
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 1,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 72
+    },
+    {
+      "effect_column": 0,
+      "note_column": 1,
+      "track": 0,
+      "pattern": 1,
+      "volume_value": 127,
+      "_comment": "Repeat 16 times and spill over to second pattern.",
+      "instrument_value": 0,
+      "note_string": "C-4",
+      "line": 84
+    }
+  ],
+  "instruments": [
+    {
+      "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Drums/GMKit - Analog Plastic.xrni"
+    }
+  ]
+}
