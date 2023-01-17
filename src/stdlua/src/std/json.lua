@@ -10,14 +10,16 @@ local std = {
 local self = {}
 
 function self.encode(object)
+    if std.type.is_string(object) then
+        return "\""..object.."\""
+    end
     object = std.visitor(
         object, 
         function(object) 
-            local result = object
             if not (std.type.is_primitive(object) or std.type.is_table(object)) then
-                result = tostring(object)
+                object = tostring(object)
             end
-            return result
+            return object
         end
     )
     object = std.indices.start_at_one(object)

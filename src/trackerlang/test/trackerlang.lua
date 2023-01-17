@@ -10,9 +10,10 @@ std.foreach(
         }
         test.input = std.json.decode(std.file.tostring("test/" .. name .. "/input.json"))
         test.actual = std.executor(std.array('trackerlang.compiler'))(test.input)
-        local fd = io.open("test/"..name.."/"..name..".log", "w")
-        fd:write(std.json.encode(test.actual))
-        fd:close()
+        std.file.write(
+            "test/"..name.."/"..name..".log",
+            std.popen("echo '"..std.json.encode(test.actual).."' | jq")
+        )
         test.expected = std.json.decode(std.file.tostring("test/" .. name .. "/output.json"))
         test.error = not std.equals(test.expected, test.actual)
         if test.error then

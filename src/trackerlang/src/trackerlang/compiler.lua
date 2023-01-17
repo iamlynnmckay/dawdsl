@@ -7,7 +7,8 @@ function self.compiler(modules)
         std.array(
             'trackerlang.builtin.default',
             'trackerlang.builtin.duration',
-            'trackerlang.builtin.expand'
+            'trackerlang.builtin.expand',
+            'trackerlang.builtin.javascript'
         ),
         modules
     )

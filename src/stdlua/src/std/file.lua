@@ -11,4 +11,10 @@ function self.tostring(path)
     return str
 end
 
+function self.write(path, content)
+    local file = io.open(path, "w")
+    file:write(content)
+    file:close()
+end
+
 return std.export(self)

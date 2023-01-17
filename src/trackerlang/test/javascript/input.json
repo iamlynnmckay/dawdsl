@@ -1,0 +1,29 @@
+{
+    "transport": {
+      "lines_per_beat": 12
+    },
+    "instruments": [
+      {
+        "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Drums/GMKit - Analog Plastic.xrni"
+      }
+    ],
+    "tracks": [
+      {
+        "effects_columns": 0,
+        "note_columns": 1
+      }
+    ],
+    "patterns": [
+      {
+        "_duration": 8
+      }
+    ],
+    "data": [
+      {
+        "_comment": "Call a javascript function inline and with a path.",
+        "note_string": {"_javascript":{"path": "test/javascript/input.js","argument":"C-4"}},
+        "_repeat": {"_javascript": {"function": "(x)=>x", "argument":2}},
+        "_duration": [ 1 ]
+      }
+    ]
+}
