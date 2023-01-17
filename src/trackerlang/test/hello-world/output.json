@@ -1,0 +1,853 @@
+{
+    "transport": {
+      "lines_per_beat": 12
+    },
+    "tracks": [
+      {
+        "effects_columns": 0,
+        "note_columns": 1
+      },
+      {
+        "effects_columns": 0,
+        "note_columns": 1
+      },
+      {
+        "effects_columns": 0,
+        "note_columns": 8
+      }
+    ],
+    "instruments": [
+      {
+        "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Keys/Space Piano.xrni"
+      },
+      {
+        "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Leads/Guitar Driven.xrni"
+      },
+      {
+        "instrument_sample_filename": "/usr/local/share/renoise-3.4.2/Library/Samples/Kicks/bs_kick_010.flac"
+      },
+      {
+        "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Drums/GMKit - Analog Plastic.xrni"
+      }
+    ],
+    "patterns": [
+      {
+        "lines": 192
+      },
+      {
+        "lines": 192
+      }
+    ],
+    "data": [
+      {
+        "track": 0,
+        "line": 0,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 0,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 0,
+        "line": 12,
+        "note_string": "B-3",
+        "effect_column": 0,
+        "instrument_value": 0,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 0,
+        "line": 18,
+        "note_string": "B-5",
+        "effect_column": 0,
+        "instrument_value": 0,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 0,
+        "line": 22,
+        "note_string": "E-4",
+        "effect_column": 0,
+        "instrument_value": 0,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 0,
+        "line": 46,
+        "note_string": "G-4",
+        "effect_column": 0,
+        "instrument_value": 0,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 0,
+        "line": 48,
+        "note_string": "G-6",
+        "effect_column": 0,
+        "instrument_value": 0,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 0,
+        "line": 51,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 0,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 0,
+        "line": 55,
+        "note_string": "B-3",
+        "effect_column": 0,
+        "instrument_value": 0,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 1,
+        "line": 0,
+        "note_string": "G-3",
+        "effect_column": 0,
+        "instrument_value": 1,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 1,
+        "line": 6,
+        "note_string": "E-5",
+        "effect_column": 0,
+        "instrument_value": 1,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 1,
+        "line": 12,
+        "note_string": "B-3",
+        "effect_column": 0,
+        "instrument_value": 1,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 1,
+        "line": 15,
+        "note_string": "A-4",
+        "effect_column": 0,
+        "instrument_value": 1,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 1,
+        "line": 21,
+        "note_string": "C-5",
+        "effect_column": 0,
+        "instrument_value": 1,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 1,
+        "line": 27,
+        "note_string": "G-3",
+        "effect_column": 0,
+        "instrument_value": 1,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 0,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 12,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 24,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 36,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 48,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 60,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 72,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 84,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 96,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 108,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 120,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 132,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 144,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 156,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 168,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 180,
+        "note_string": "C-4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 0
+      },
+      {
+        "track": 2,
+        "line": 0,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 4,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 8,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 12,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 16,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 20,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 24,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 28,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 32,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 36,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 40,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 44,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 48,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 52,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 56,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 60,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 64,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 68,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 72,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 76,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 80,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 84,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 88,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 92,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 96,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 100,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 104,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 108,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 112,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 116,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 120,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 124,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 128,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 132,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 136,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 140,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 144,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 148,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 152,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 156,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 160,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 164,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 168,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 172,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 176,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 180,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 184,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 188,
+        "note_string": "F#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 1
+      },
+      {
+        "track": 2,
+        "line": 0,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 6,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 12,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 18,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 24,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 30,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 36,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 42,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 48,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 54,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 60,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      },
+      {
+        "track": 2,
+        "line": 66,
+        "note_string": "D#4",
+        "effect_column": 0,
+        "instrument_value": 3,
+        "pattern": 0,
+        "note_column": 2
+      }
+    ]
+  }

@@ -1,0 +1,82 @@
+{
+  "transport": {
+    "lines_per_beat": 12
+  },
+  "instruments": [
+    {
+      "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Keys/Space Piano.xrni"
+    },
+    {
+      "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Leads/Guitar Driven.xrni"
+    },
+    {
+      "instrument_sample_filename": "/usr/local/share/renoise-3.4.2/Library/Samples/Kicks/bs_kick_010.flac"
+    },
+    {
+      "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Drums/GMKit - Analog Plastic.xrni"
+    }
+  ],
+  "tracks": [
+    {
+      "effects_columns": 0,
+      "note_columns": 1
+    },
+    {
+      "effects_columns": 0,
+      "note_columns": 1
+    },
+    {
+      "effects_columns": 0,
+      "note_columns": 1
+    }
+  ],
+  "data": [
+    {
+      "_size": 8,
+      "note_string": [
+        "C-4",
+        "C-5"
+      ],
+      "instrument_value": 0,
+      "_duration": [
+        0.5,
+        0.5
+      ],
+      "track": 0
+    },
+    {
+      "_repeat": 2,
+      "note_string": [
+        "C-6",
+        "E-6",
+        "G-6"
+      ],
+      "instrument_value": 1,
+      "_duration": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "track": 1
+    },
+    {
+      "_repeat": 4,
+      "note_string": [
+        "C-3"
+      ],
+      "instrument_value": 2,
+      "_duration": [
+        1
+      ],
+      "track": 2
+    }
+  ],
+  "patterns": [
+    {
+      "_duration": 16
+    },
+    {
+      "_duration": 16
+    }
+  ]
+}

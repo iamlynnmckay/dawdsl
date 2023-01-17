@@ -1,0 +1,237 @@
+#!/bin/bash
+
+set -oue pipefail
+
+#
+#
+#
+
+function __luash_error() {
+    echo "ERROR"
+    exit 1
+}
+
+#
+# luash --list
+#
+
+function __luash_lua_version() {
+    lua -v | grep -o '[0-9][0-9]*\.[0-9][0-9]*'
+}
+
+function __luash_lua_path() {
+    local path=/usr/share/lua/$(__luash_lua_version)
+    if [ ! -e ${path} ]
+    then
+        sudo mkdir -p ${path}
+    fi
+    echo ${path}
+}
+
+function _luash_list() {
+    local root=$(__luash_lua_path)
+    (
+        cd ${root}
+        echo *.luash | tr ' ' '\n' | sed 's/\.luash//g;s/\*//'
+    )
+}
+
+#
+# luash --uninstall-all
+#
+
+function __luash_package_install_path() {
+    local name=${1:?}
+    echo ${name} | sed 's/\./\//g'
+}
+
+function __luash_uninstall_package() {
+    local name=${1:?}
+    local root=$(__luash_lua_path)
+    local path=$(__luash_package_install_path ${name})
+    sudo rm -rf ${root}/${path} ${root}/${path}.lua ${root}/${name}.luash
+}
+
+function _luash_uninstall_all() {
+    local name
+    for name in $(_luash_list)
+    do
+        echo "Uninstalling ${name}..."
+        __luash_uninstall_package ${name}
+    done
+}
+
+#
+# luash --install [<path>]
+#
+
+function __luash_local_package_name() {
+    local path=${1:?}
+    (
+        cd src
+        echo *.lua | sed 's/\.lua//'
+    )
+}
+
+function __luash_remote_package_name() {
+    local url=${1:?}
+    echo ${url} | sed 's/.*github.com\///g' | sed 's/\//./g'
+}
+
+function __luash_package_name() {
+    local path_or_url_or_name=${1:?}
+    if [ $(echo ${path_or_url_or_name} | 'http://.*') ]
+    then
+        __luash_remote_package_name ${path_or_url_or_name}
+    elif [ $(ls ${path_or_url_or_name}/src/*.lua) ]
+    then
+        __luash_local_package_name ${path_or_url_or_name}
+    elif [ $(find $(__luash_lua_root) -name "${path_or_url_or_name}.luash") ]
+    then
+        echo ${path_or_url_or_name}
+    else
+        __luash_error
+    fi
+}
+
+function __luash_install_local_package() {
+    local path=${1:?}
+    (
+        cd ${path}
+        local dependencies="$(echo $(cat .luash))"
+        if [ "${dependencies}" ]
+        then
+            _luash_install ${dependencies}
+        fi
+        local root=$(__luash_lua_path)
+        local name=$(__luash_local_package_name ${path})
+        echo "Installing ${name}..."
+        __luash_uninstall_package ${name}
+        sudo cp src/${name}.lua ${root}/${name}.lua
+        sudo cp -r src/${name} ${root}/${name}
+        sudo cp .luash ${root}/${name}.luash
+        sudo chmod -R a+r ${root}
+        echo "Testing ${name}..."
+        lua test/${name}.lua || \
+            (__luash_uninstall_package ${name} && __luash_error)
+    )
+}
+
+function __luash_install_remote_package() {
+    local url=${1:?}
+    local root=$(__luash_lua_path)
+    local name=$(__luash_remote_package_name ${url})
+    if [ ! -e ${root}/${name}.luash ]
+    then
+        echo "Installing ${name}..."
+        rm -rf .tmp
+        git clone ${url} .tmp
+        if [ -e .tmp/.luash ]
+        then
+            __luash_install_local_package .tmp
+        else
+            __luash_uninstall_package ${name}
+            local path=${root}/$(__luash_package_install_path ${name})
+            sudo mkdir -p $(dirname ${path})
+            sudo cp -r .tmp ${path}
+            sudo touch ${root}/${name}.luash
+            sudo chmod -R a+r ${root}
+        fi
+        rm -rf .tmp
+    fi
+}
+
+
+function _luash_install() {
+    local path_or_url
+    for path_or_url in ${@:?}
+    do
+        if [ $(echo ${path_or_url} | grep 'http.*://') ]
+        then
+            __luash_install_remote_package ${path_or_url}
+        elif [ $(ls ${path_or_url}/src/*.lua) ]
+        then
+            __luash_install_local_package ${path_or_url}
+        else
+            __luash_error
+        fi
+    done
+}
+
+#
+# luash --help
+# 
+
+function _luash_help() {
+cat << EOF
+
+    luash
+
+    Usage:
+
+        luash (--list|--install|--uninstall-all) [<path|url>]
+    
+    Options:
+
+        --list              List name of all installed packages.
+        --install           Install a package at <path> or <url>.
+        --uninstall-all     Uninstall all packages.
+
+    Arguments:
+
+        <path>          Path of a local package.
+        <url>           URL of a remote package.
+
+    Notes
+
+        - An execution with no arguments sets <path> to \${PWD}.
+        - A local package has a /src/<name>.lua file, a /src/<name>
+        directory, a /test/<name>.lua and a /.luash file.
+        - A remote package is cloned and treated as a local package
+        if it has a .luash file.
+        - A .luash file contains dependencies, which are either
+        a path of a source package or a URL of a remote package. 
+        - A lua script in a remote package at github.com/x/y/z.lua
+        may be imported with 'require "x.y.z"'.
+        - A lua script in a source package at src/x.lua may be 
+        imported with 'require "x"'.
+
+EOF
+
+}
+
+#
+# luash
+#
+
+function luash() {
+    (
+        if [ -z $# ]
+        then
+            luash --install
+        else
+            case ${1:0} in
+                "--list")
+                    _luash_list
+                ;;
+                "--install")
+                    shift
+                    _luash_install ${@:-${PWD}}
+                ;;
+                "--uninstall-all")
+                    shift
+                    _luash_uninstall_all
+                ;;
+                "--help")
+                    _luash_help
+                ;;
+                *)
+                    luash --help
+                    exit 1
+                ;;
+            esac
+        fi
+    )
+}
+
+luash ${@:-}

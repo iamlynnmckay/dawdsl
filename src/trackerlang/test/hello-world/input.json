@@ -1,0 +1,122 @@
+{
+  "transport": {
+    "lines_per_beat": 12
+  },
+  "instruments": [
+    {
+      "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Keys/Space Piano.xrni"
+    },
+    {
+      "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Leads/Guitar Driven.xrni"
+    },
+    {
+      "instrument_sample_filename": "/usr/local/share/renoise-3.4.2/Library/Samples/Kicks/bs_kick_010.flac"
+    },
+    {
+      "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Drums/GMKit - Analog Plastic.xrni"
+    }
+  ],
+  "tracks": [
+    {
+      "effects_columns": 0,
+      "note_columns": 1
+    },
+    {
+      "effects_columns": 0,
+      "note_columns": 1
+    },
+    {
+      "effects_columns": 0,
+      "note_columns": 8
+    }
+  ],
+  "data": [
+    {
+      "_size": 8,
+      "note_string": [
+        "C-4",
+        "B-3",
+        "B-5",
+        "E-4",
+        "G-4",
+        "G-6"
+      ],
+      "instrument_value": 0,
+      "_duration": [
+        1,
+        0.5,
+        0.33333333333333,
+        2,
+        0.125,
+        0.25,
+        0.33333333333333,
+        0.33333333333333,
+        0.33333333333333,
+        0.66666666666667
+      ],
+      "track": 0
+    },
+    {
+      "_repeat": 2,
+      "note_string": [
+        "G-3",
+        "E-5",
+        "B-3",
+        "A-4",
+        "C-5"
+      ],
+      "instrument_value": 1,
+      "_duration": [
+        0.5,
+        0.5,
+        0.25
+      ],
+      "track": 1
+    },
+    {
+      "_repeat": 16,
+      "note_string": [
+        "C-4"
+      ],
+      "instrument_value": 3,
+      "_duration": [
+        1
+      ],
+      "track": 2
+    },
+    {
+      "_repeat": 16,
+      "note_column": 1,
+      "note_string": [
+        "F#4"
+      ],
+      "instrument_value": 3,
+      "_duration": [
+        0.33333333333333,
+        0.33333333333333,
+        0.33333333333333
+      ],
+      "track": 2
+    },
+    {
+      "_repeat": 12,
+      "note_column": 2,
+      "note_string": [
+        "D#4"
+      ],
+      "instrument_value": 3,
+      "_duration": [
+        0.5
+      ],
+      "track": 2
+    }
+  ],
+  "patterns": [
+    {
+      "_duration": 16
+    },
+    {
+      "_duration": 16
+    }
+  ]
+}
