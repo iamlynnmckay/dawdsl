@@ -21,6 +21,8 @@ Rhythmic Serialization
 
 Other
 
+- https://www.pornhub.com/view_video.php?viewkey=ph63c4de75df352 <- this can recognise chords and stuff, its super cool
+
 - https://luafun.github.io/reference.html
 - https://luafun.github.io/generators.html#random-sampling
 - https://luafun.github.io/transformations.html
