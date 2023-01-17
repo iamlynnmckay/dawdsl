@@ -49,7 +49,7 @@ When `make` is run `src/dawdsl-renoise/TestPad.lua` is copied to the Renoise use
 
 This lua script contains a complete end-to-end example of a dawdsl execution.
     
-To run the script, open Renoise with 'renoise --scripting-dev', goto 'Tools > Scripting Terminal & Editor...', open 'User Scripts > TestPad.lua', and click 'Execute'.
+To run the script, open Renoise with `renoise --scripting-dev`, goto `Tools > Scripting Terminal & Editor...`, open `User Scripts > TestPad.lua`, and click `Execute`.
 
 ### Library
 
@@ -58,29 +58,30 @@ dawdsl has a lua library that defines a single function `dawdsl` that takes one 
 A <Message> is either a lua object with zero-indexed arrays, or a JSON encoded string, conforming to the following grammar.
 
 ```
-    <Message> := <SeverMessage> | <ClientMessage>
 
-    <ServerMessage> := '{
-        "server": {
-            "backend": (<Backend>|<null>),
-            "port": (<number>|<null>),
-            "modules": (<array<Module>>|<null>)
-        }
-    }'
+<Message> := <SeverMessage> | <ClientMessage>
 
-    <Backend> := <string>
-    <Module> := <string>
+<ServerMessage> := '{
+    "server": {
+        "backend": (<Backend>|<null>),
+        "port": (<number>|<null>),
+        "modules": (<array<Module>>|<null>)
+    }
+}'
 
-    <ClientMessage> := '{
-        "client": {
-            "backend": (<Backend>|<null>),
-            "address": (<string>|<null>),
-            "port": (<number>|<null>),
-            "program": <Program>
-        }
-    }'
+<Backend> := <string>
+<Module> := <string>
 
-    <Program> := ...
+<ClientMessage> := '{
+    "client": {
+        "backend": (<Backend>|<null>),
+        "address": (<string>|<null>),
+        "port": (<number>|<null>),
+        "program": <Program>
+    }
+}'
+
+<Program> := ...
 
 ```
 
@@ -89,9 +90,9 @@ The semantics of each type of message and its properties is given hence.
 - `<ServerMessage>`
     - Used to start a dawdsl server with the given port, backend, and modules. By default, port = 49151, backend = "renoiselang" and modules = ["trackerlang.module.builtin"].
 - `<Backend>`
-    - The backend is used to define the interpreter. It must be the name a of lua package defining a function 'server', that takes a port number and an array of <Module> and returns a handle to the server, and a function 'client', that takes a server address and port number, and returns a function 'send', that itself takes a message and sends it to the server at the given port and address. The only natively supported backend at this time is 'renoiselang'. See https://github.com/iamlynnmckay/dawdsl/src/renoiselang for more information.
+    - The backend is used to define the interpreter. It must be the name a of lua package defining a function 'server', that takes a port number and an array of `<Module>` and returns a handle to the server, and a function 'client', that takes a server address and port number, and returns a function 'send', that itself takes a message and sends it to the server at the given port and address. The only natively supported backend at this time is `renoiselang`. See `./src/renoiselang` for more information.
 - `<Module>`
-    - The modules are an array of strings used to define the compiler. They must be the names of lua packages that define valid trackerlang compiler modules. For more information on trackerlang, see github.com/iamlynnmckay/dawdsl/src/trackerlang. for more information.
+    - The modules are an array of strings used to define the compiler. They must be the names of lua packages that define valid trackerlang compiler modules. For more information on trackerlang, see `src/trackerlang`. for more information.
 - `<ClientMessage>`
     - Used to send a message to a running dawdsl server with the given address, port, and program to be evaluated. By default, address = "localhost" and port = 49151.
 - `<Program>`
