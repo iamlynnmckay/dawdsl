@@ -19,12 +19,15 @@ function self._set_data_line_by_duration(program)
         for i = 0, #program.data do
             local x = program.data[i]
             if not (x._duration == nil) then
-                x.line = x.line or 0
                 local lines_per_pattern = program.patterns[x.pattern or 0].lines
                 local lines_per_beat = program.transport.lines_per_beat
                 local beats_per_pattern = lines_per_pattern / lines_per_beat
                 local lines_per_duration = std.math.round(std.math.normalize(x._duration, lines_per_pattern, 0, beats_per_pattern, 0))
                 x._duration = nil
+                -- set start beat
+                if x._offset then
+                    x.line = x._offset * lines_per_beat
+                end
                 -- set size
                 x._size = x._size or std.size(lines_per_duration)
                 -- set repeats

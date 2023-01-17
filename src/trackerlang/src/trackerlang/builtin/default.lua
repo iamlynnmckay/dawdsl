@@ -37,6 +37,8 @@ function self._default_data(program)
         if (not x.pattern) then x.pattern = 0 end
         if (not x.track) then x.track = 0 end
         if (not x.line) then x.line = 0 end
+        if (not x.instrument_value) then x.instrument_value = 0 end
+        if (not x.volume_value) then x.volume_value = 0x7F end
         if (not x.note_column) then x.note_column = 0 end
         if (not x.effect_column) then x.effect_column = 0 end
     end
