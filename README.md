@@ -4,6 +4,10 @@ dawdsl is a domain specific language framework for digital audio workstations an
 
 For users, it offers a language for music composition that is intuitive to read, easy to write, expressive enough for most any type of music, and specific enough to be useful for musicians.
 
+For developers, it offers an extensible platform on which to build domain specific languages in JSON, with modular compiler and interpreter units composed together in layers of transformation and compilation.
+
+For everyone else, it offers nothing.
+
 ## Dependencies
 
 To use dawdsl, you must have the following dependencies installed:
