@@ -24,6 +24,12 @@
         "note_string": {"_javascript":{"path": "test/javascript/input.js","argument":"C-4"}},
         "_repeat": {"_javascript": {"function": "(x)=>x", "argument":2}},
         "_duration": [ 1 ]
+      },
+      {
+        "_comment": "Call a javascript function that gives a major scale.",
+        "note_string": {"_javascript":{"path": "test/javascript/pitch.js","argument":"C-4"}},
+        "_size": 8,
+        "_duration": [ 0.25 ]
       }
     ]
 }

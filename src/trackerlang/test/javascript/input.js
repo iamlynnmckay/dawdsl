@@ -1,3 +1,3 @@
 (argument) => {
-    return "\"" + argument + "\""
+    return argument
 }
