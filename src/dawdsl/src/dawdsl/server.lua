@@ -23,9 +23,7 @@ class "Socket"
 
     function Socket:socket_message(socket, message)
         std.log.info({socket = socket, message = message})
-        local result = self.callback(std.json.decode(message))
-        local response = std.json.encode(result)
-        return response
+        return self.callback(message)
     end
 
 local self = {}

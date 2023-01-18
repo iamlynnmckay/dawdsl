@@ -1,7 +1,9 @@
 return {
+    at = require 'std.at',
     application = require 'std.application',
     array = require 'std.array',
     call = require 'std.call',
+    diff = require 'std.diff',
     equals = require 'std.equals',
     executor = require 'std.executor',
     export = require 'std.export',

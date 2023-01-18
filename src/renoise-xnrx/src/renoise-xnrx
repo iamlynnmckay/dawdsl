@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -oue pipefail
+
+function ___main___() {
+    local RENOISE_VERSION=3.4.2
+    local RENOISE_PATH=/usr/local/share/renoise-${RENOISE_VERSION}
+    rm -rf .tmp
+    if [ ! -e ${RENOISE_PATH}/Scripts/.git ]
+    then
+        git clone https://github.com/renoise/xrnx .tmp
+        sudo mv ${RENOISE_PATH}/Scripts ${RENOISE_PATH}/Scripts.backup
+        sudo mv .tmp ${RENOISE_PATH}/Scripts
+    fi
+}
+
+___main___
