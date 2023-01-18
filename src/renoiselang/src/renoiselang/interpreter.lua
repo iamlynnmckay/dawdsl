@@ -59,7 +59,6 @@ function self._interpreter_patterns(program)
         for index = 0, #program.patterns do
             local pattern = program.patterns[index]
             renoise.clear_pattern(index)
-            print(pattern.lines)
             renoise.set_number_of_lines(index, pattern.lines)
         end
     end
