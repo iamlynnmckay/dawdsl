@@ -5,27 +5,32 @@ local std = {
 
 local self = {}
 
-function self.visitor(object, callback, level)
+function self.visitor(object, callback, path)
     level = level or 0
+    path = path or std.array()
     local new_object = {}
+    local j = #path
     if std.type.is_array(object) then
         new_object = std.array()
         for i = 0, #object do
-            new_object[i] = self.visitor(object[i], callback, level + 1)
+            path[j] = i
+            new_object[i] = self.visitor(object[i], callback, path)
         end
     elseif std.type.is_lua_array(object) then
         for i, v in ipairs(object) do
-            new_object[i] = self.visitor(v, callback, level + 1)
+            path[j] = i
+            new_object[i] = self.visitor(v, callback, path)
         end
     elseif std.type.is_map(object) then
         for k, v in pairs(object) do
-            new_object[k] = self.visitor(v, callback, level + 1)
+            path[j] = k
+            new_object[k] = self.visitor(v, callback, path)
         end
     else
         assert(not std.type.is_table(object))
         new_object = object
     end
-    local result = callback(new_object, level)
+    local result = callback(new_object, object, path)
     return result
 end
 
