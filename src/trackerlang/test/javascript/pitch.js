@@ -38,7 +38,7 @@ function get_diatonic_scale_mode() {
 function get_scale_intervals_at_mode(scale_intervals, mode) {
     let scale_intervals_at_mode = Array(scale_intervals.length)
     for (let i = 0; i < scale_intervals.length; i++) {
-        scale_intervals_at_mode[(i + mode) % scale_intervals.length]
+        scale_intervals_at_mode[i] = scale_intervals[(i + mode) % scale_intervals.length]
     }
     return scale_intervals_at_mode
 }
