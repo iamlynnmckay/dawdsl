@@ -1,4 +1,4 @@
-local std = require 'std'
+local dawdsl = { std = require 'dawdsl.std' }
 
 local self = {}
 
@@ -7,7 +7,7 @@ function self._create_client(server_address, server_port)
 end
 
 function self._send(client, message)
-    return client:send(std.json.encode(message))
+    return client:send(dawdsl.std.json.encode(message))
 end
 
 function self._receive(client)
@@ -20,14 +20,14 @@ function self.client(server_address, server_port, request)
     local client = self._create_client(server_address, server_port)
     local response, error_message = self._send(client, request)
     if not response then
-        std.log.error({request = request, client = client, response = response, error_message = error_message})
+        dawdsl.std.log.error({request = request, client = client, response = response, error_message = error_message})
         return
     end
     local response, error_message = self._receive(client)
     if not response then
-        std.log.error({request = request, client = client, response = response, error_message = error_message})
+        dawdsl.std.log.error({request = request, client = client, response = response, error_message = error_message})
     end
-    std.log.info({request = request, client = client, response = response, error_message = error_message})
+    dawdsl.std.log.info({request = request, client = client, response = response, error_message = error_message})
 end
 
 return self.client
