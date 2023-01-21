@@ -1,14 +1,82 @@
 // import Assert from './std/assert.js'
 
-class OrderedMap {
-    #self = { 
-        before: null, 
-        after: null, 
-        table: {} 
-    }
+import { ReadableStreamDefaultReadValueResult } from "stream/web";
+
+// type BeforeInsert = 
+// type AfterInsert = { before: string; after: string; table: { [x: string]: { before: string, after: string, value: any } } }
+
+/*
+function foo(x: [string, number]) {
+  console.log(1)  
+} 
+function bar(x: any) {
+  console.log(2)  
+}
+type FooOrBar<A> =
+    A extends [string, number] ?
+    "foo" : 
+    bar;
+*/
+
+export class OrderedMap {
+/*
+    #self: BeforeInsert = {
+            before: null, 
+            after: null, 
+            table: {} 
+        }
     constructor() {
-        this.#self = {}
     }
+    static #insertBetween(self: BeforeInsert, key: string, value: any, before: undefined, after: undefined) : AfterInsert
+    static #insertBetween(self: AfterInsert, key: string, value: any, before: string, after: undefined) : AfterInsert
+    static #insertBetween(self: AfterInsert, key: string, value: any, before: undefined, after: string) : AfterInsert
+    static #insertBetween(self: AfterInsert, key: string, value: any, before: undefined, after: undefined) : AfterInsert
+
+    static #insertBetween(
+        self: BeforeInsert | AfterInsert,
+        key: string,
+        value: any,
+        before: string | undefined,
+        after: string | undefined
+    ) : AfterInsert {
+        return self
+    }
+
+    static #insertBefore(self: BeforeInsert, key: string, value: any, after: undefined) : AfterInsert
+    static #insertBefore(self: AfterInsert, key: string, value: any, after?: string) : AfterInsert
+    static #insertAfter(self: BeforeInsert, key: string, value: any, before: undefined) : AfterInsert
+    static #insertAfter(self: AfterInsert, key: string, value: any, before?: string) : AfterInsert
+    static #forwardIterator(callback): null
+    static #backwardIterator(callback): null
+
+    insertBefore(
+        key: string,
+        value: any,
+        after?: string
+    ) {
+        return OrderedMap.#insertBefore(this.#self, key, value, after)
+    }
+    insertAfter(
+        key: string,
+        value: any,
+        before?: string
+    ) {
+        return OrderedMap.#insertAfter(this.#self, key, value, before)
+    }
+    forwardIterator(
+        callback
+    ) {
+        return OrderedMap.#forwardIterator(this.#self, callback)
+    }
+    backwardIterator(
+        callback
+    ) {
+        return OrderedMap.#backwardIterator(this.#self, callback)
+    }
+    */
+}
+/*
+class OrderedMap {
     static #insertIfBeforeAndAfterAreNull(
         self: { before: any; after: any; table: { [x: string]: { value: any } } },
         key: string | number,
@@ -104,39 +172,10 @@ class OrderedMap {
     ) {
 
     }
-    insertBefore(
-        key: any,
-        value: any,
-        after: any
-    ) {
-        return OrderedMap.#insertBefore(this.self, key, value, after)
-    }
-    insertAfter(
-        key: any,
-        value: any,
-        before: any
-    ) {
-        return OrderedMap.#insertAfter(this.self, key, value, before)
-    }
-    at(
-        key: any
-    ) {
-        return OrderedMap.#at(this.self, key)
-    }
-    forwardIterator(
-        callback: any,
-        key: any
-    ) {
-        return OrderedMap.#forwardIterator(this.self, callback, key)
-    }
-    backwardIterator(
-        callback: any,
-        key: any
-    ) {
-        return OrderedMap.#backwardIterator(this.self, callback, key)
-    }
+
 }
 
 
 
 //exports.OrderedMap = OrderedMap
+*/
