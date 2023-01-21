@@ -1,98 +1,91 @@
 // import Assert from './std/assert.js'
 
-import { normalize } from "path";
-import { runInThisContext } from "vm";
+type Self<Value> = { before: Key; after: Key; table: { [x: Key]: { before: Key | undefined, after: Key | undefined, value: Value } } }
 
-
-type BeforeInsert = { before: undefined; after: undefined; table: undefined }
-type Self = { before: string; after: string; table: { [x: string]: { before: string | undefined, after: string | undefined, value: any } } }
-
-/*
-function foo(x: [string, number]) {
-  console.log(1)  
-} 
-function bar(x: any) {
-  console.log(2)  
+function defined<T>(a: T | undefined): boolean {
+    return typeof(a) !== 'undefined'
 }
-type FooOrBar<A> =
-    A extends [string, number] ?
-    "foo" : 
-    bar;
-*/
 
-export class OrderedMap {
+type Key = string
 
-    static #insertBetween(self: Self, key: string, value: any, before: string, after: undefined) : Self
-    static #insertBetween(self: Self, key: string, value: any, before: undefined, after: string) : Self
-    static #insertBetween(self: Self, key: string, value: any, before: undefined, after: undefined) : Self
+export class OrderedMap<Value> {
 
-    static #insertBetween(
-        self: Self,
-        key: string,
-        value: any,
-        before: string | undefined,
-        after: string | undefined
-    ) : Self {
-        const result : Self = {
-            before: 'foo',
-            after: 'bar',
-            table: {x: {before: 'k', after: 'j', value: 1}}
+    static #insertBetween<Value>(self: Self<Value>, key: Key, value: Value, before: Key, after: undefined) : Self<Value>
+    static #insertBetween<Value>(self: Self<Value>, key: Key, value: Value, before: undefined, after: Key) : Self<Value>
+    static #insertBetween<Value>(self: Self<Value>, key: Key, value: Value, before: undefined, after: undefined) : Self<Value>
+
+    static #insertBetween<Value>(
+        self: Self<Value>,
+        key: Key,
+        value: Value,
+        before: Key | undefined,
+        after: Key | undefined
+    ) : Self<Value> {
+        if (defined(before) && defined(after)) {
+            self.table[key] = {value: value, before: before, after: after}
+        } else if (defined(before)) {
+            self.table[key] = {value: value, before: before, after: self.table[before as Key].after}
+        } else if (defined(after)) {
+            self.table[key] = {value: value, before: self.table[after as Key].before, after: after}
+        } else {
+            self.table[key] = {value: value, before: undefined, after: undefined}
+            self.before = key
+            self.after = key
         }
-        return result
+        self.table[self.table[key].after as Key].before = key
+        self.table[self.table[key].before as Key].after = key
+        return self
     }
     
-    static #insertBefore(self: Self, key: string, value: any, after: undefined) : Self
-    static #insertBefore(self: Self, key: string, value: any, after: string) : Self
+    static #insertBefore<Value>(self: Self<Value>, key: Key, value: Value, after: undefined) : Self<Value>
+    static #insertBefore<Value>(self: Self<Value>, key: Key, value: Value, after: Key) : Self<Value>
 
-    static #insertBefore(
-        self: Self,
-        key: string,
-        value: any,
-        after: string | undefined
-    ) : Self {
-        const result : Self = {
-            before: 'foo',
-            after: 'bar',
-            table: {x: {before: 'k', after: 'j', value: 1}}
-        }
-        return result
+    static #insertBefore<Value>(
+        self: Self<Value>,
+        key: Key,
+        value: Value,
+        after: Key | undefined
+    ) : Self<Value> {
+        return (defined(after))
+            ? OrderedMap.#insertBetween(self, key, value, undefined, after as Key)
+            : OrderedMap.#insertBetween(self, key, value, self.before, undefined)
     }
     
-    static #insertAfter(self: Self, key: string, value: any, before: undefined) : Self
-    static #insertAfter(self: Self, key: string, value: any, before: string) : Self
+    static #insertAfter<Value>(self: Self<Value>, key: Key, value: Value, before: undefined) : Self<Value>
+    static #insertAfter<Value>(self: Self<Value>, key: Key, value: Value, before: Key) : Self<Value>
 
-    static #insertAfter(
-        self:  Self,
-        key: string,
-        value: any,
-        before: string | undefined
-    ) : Self {
-        const result : Self = {
-            before: 'foo',
-            after: 'bar',
-            table: {x: {before: 'k', after: 'j', value: 1}}
-        }
-        return result
+    static #insertAfter<Value>(
+        self:  Self<Value>,
+        key: Key,
+        value: Value,
+        before: Key | undefined
+    ) : Self<Value> {
+        return (defined(before)) 
+            ? OrderedMap.#insertBetween(self, key, value, before as Key, undefined)
+            : OrderedMap.#insertBetween(self, key, value, undefined, self.after)
     }
     
-    /*
-
-    static #forwardIterator(self: Self, callback): void {
-        return 
+    static #forwardIterator<Value>(self: Self<Value>, callback: (k:Key, v:Value) => void, key?: Key): void {
+        const k = defined(key) ? key as Key : self.after
+        const v = self.table[k]
+        callback(k, v.value)
+        defined(v.after)
+            ? OrderedMap.#forwardIterator(self, callback, k)
+            : null
     }
 
-    static #backwardIterator(self; Self, callback): void {
-
-    }
-    */
-
-    #self: Self
-
-    static #defined<T>(a: T | undefined): boolean {
-        return typeof(a) !== 'undefined'
+    static #backwardIterator<Value>(self: Self<Value>, callback : (k:Key, v:Value) => void, key?: Key): void {
+        const k = defined(key) ? key as Key : self.before
+        const v = self.table[k]
+        callback(k, v.value)
+        defined(v.before)
+            ? OrderedMap.#forwardIterator(self, callback, k)
+            : null
     }
 
-    constructor(key: string, value: any) {
+    #self: Self<Value>
+
+    constructor(key: Key, value: Value) {
         this.#self = {
             before: key,
             after: key,
@@ -102,141 +95,37 @@ export class OrderedMap {
     }
 
     insertBefore(
-        key: string,
-        value: any,
-        after?: string
+        key: Key,
+        value: Value,
+        after?: Key
     ) {
-        OrderedMap.#defined(after) 
-            ? this.#self = OrderedMap.#insertBefore(this.#self, key, value, after as string)
+        defined(after) 
+            ? this.#self = OrderedMap.#insertBefore(this.#self, key, value, after as Key)
             : this.#self = OrderedMap.#insertBefore(this.#self, key, value, after as undefined) 
         return this
     }
     insertAfter(
-        key: string,
-        value: any,
-        before?: string
+        key: Key,
+        value: Value,
+        before?: Key
     ) {
-        OrderedMap.#defined(before) 
-            ? this.#self = OrderedMap.#insertBefore(this.#self, key, value, before as string)
-            : this.#self = OrderedMap.#insertBefore(this.#self, key, value, before as undefined) 
+        defined(before) 
+            ? this.#self = OrderedMap.#insertAfter(this.#self, key, value, before as Key)
+            : this.#self = OrderedMap.#insertAfter(this.#self, key, value, before as undefined) 
         return this
     }
-    /*
+  
     forwardIterator(
-        callback
+        callback: (k:Key, v:Value) => void
     ) {
         OrderedMap.#forwardIterator(this.#self, callback)
         return this
     }
     backwardIterator(
-        callback
+        callback: (k:Key, v:Value) => void
     ) {
-        return OrderedMap.#backwardIterator(this.#self, callback)
+        OrderedMap.#backwardIterator(this.#self, callback)
         return this
     }
-    */
+  
 }
-/*
-class OrderedMap {
-    static #insertIfBeforeAndAfterAreundefined(
-        self: { before: any; after: any; table: { [x: string]: { value: any } } },
-        key: string | number,
-        value: any
-    ) {
-        Assert.notundefined(self, key, value)
-        Assert.undefined(self.before, self.after)
-        Assert.notHasOwnProperty(self.table, key)
-        self.table[key] = { value: value }
-        self.before = key
-        self.after = key
-        return self
-    }
-    static #insertIfBeforeIsundefinedAndAfterIsNotundefined(
-        self: { before: any; after: any; table: { [x: string]: { value: any } } },
-        key: string | number,
-        value: any,
-        after: any
-    ) {
-        Assert.notundefined(self, key, value, after, self.before, self.after)
-        Assert.notHasOwnProperty(self.table, key)
-        self.table[key] = { value: value }
-
-    }
-    static #insertIfAfterIsundefinedAndBeforeIsNotundefined(
-        self: { before: any; after: any; table: { [x: string]: { value: any } } },
-        key: string | number,
-        value: any,
-        before: any
-    ) {
-        Assert.notundefined(self, key, value, before, self.before, self.after)
-        Assert.notHasOwnProperty(self.table, key)
-        self.table[key] = { value: value }
-
-    }
-    static #insertIfBeforeAndAfterAreNotundefined(
-        self: { before: any; after: any; table: { [x: string]: { value: any } } },
-        key: string | number,
-        value: any,
-        before: any,
-        after: any
-    ) {
-        Assert.notundefined(self, key, value, before, after, self.before, self.after)
-        Assert.notHasOwnProperty(self.table, key)
-        self.table[key] = { value: value }
-
-    }
-    static #insertBetween(
-        self: { table: { [x: string]: { value: any } } },
-        key: string | number,
-        value: any,
-        before: any,
-        after: any
-    ) {
-        Assert.notundefined(self, key, value)
-        Assert.notHasOwnProperty(self.table, key)
-        self.table[key] = { value: value }
-
-    }
-    static #insertBefore(
-        self: any,
-        key: any,
-        value: any,
-        after: any
-    ) {
-
-    }
-    static #insertAfter(
-        self: any,
-        key: any,
-        value: any,
-        before: any,
-    ) {
-
-    }
-    static #at(
-        self: any,
-        key: any
-    ) {
-
-    }
-    static #forwardIterator(
-        self: any,
-        callback: any,
-        key: any
-    ) {
-
-    }
-    static #backwardIterator(
-        self: any,
-        callback: any,
-        key: any
-    ) {
-
-    }
-
-}
-
-
-
-//exports.OrderedMap = OrderedMap
-*/
