@@ -1,5 +1,20 @@
 # NOTES
 
+
+Renoise tools
+
+https://www.renoise.com/tools/browse
+
+Typescript
+
+https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
+
+https://www.typescriptlang.org/docs/handbook/basic-types.html#tuple
+
+https://stackoverflow.com/questions/41139763/how-to-declare-a-fixed-length-array-in-typescript
+
+https://www.typescriptlang.org/docs/handbook/advanced-types.html#conditional-types
+
 Renoise Lua
 
 - https://github.com/renoise/xrnx
