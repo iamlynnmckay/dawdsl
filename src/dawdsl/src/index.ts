@@ -1,3 +1,3 @@
-import { foo} from './std'
+import { dawdsl } from "./dawdsl"
 
-foo()
+dawdsl(JSON.parse(process.argv[2]))
