@@ -1,3 +1,3 @@
-import { dawdsl } from "./dawdsl"
+import { dawdsl } from "./dawdsl";
 
-dawdsl(JSON.parse(process.argv[2]))
+dawdsl.evaluate(process.argv[2]);

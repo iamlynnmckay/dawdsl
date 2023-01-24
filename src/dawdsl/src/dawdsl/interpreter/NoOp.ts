@@ -1,6 +1,8 @@
-const NoOp = [{
-    name: 'NoOp',
-    definition: {}
-}]
+const NoOp = [
+  {
+    name: "NoOp",
+    definition: {},
+  },
+];
 
-export {NoOp}
+export { NoOp };

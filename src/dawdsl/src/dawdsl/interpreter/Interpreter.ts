@@ -1,7 +1,5 @@
-import {NoOp} from "./NoOp"
+import { NoOp } from "./NoOp";
 
-const Interpreter = [
-    NoOp
-].flat()
+const Interpreter = [NoOp].flat();
 
-export {Interpreter}
+export { Interpreter };

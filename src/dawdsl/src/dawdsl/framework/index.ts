@@ -1,3 +1,3 @@
 import { Framework } from "./Framework";
 
-export {Framework}
+export { Framework };

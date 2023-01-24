@@ -1,9 +1,6 @@
-import { NonEmptyDefaults } from "./NonEmptyDefaults"
-import { SensibleDefaults } from "./SensibleDefaults"
+import { NonEmptyDefaults } from "./NonEmptyDefaults";
+import { SensibleDefaults } from "./SensibleDefaults";
 
-const Compiler = [
-    NonEmptyDefaults, 
-    SensibleDefaults
-].flat()
+const Compiler = [NonEmptyDefaults, SensibleDefaults].flat();
 
-export {Compiler}
+export { Compiler };

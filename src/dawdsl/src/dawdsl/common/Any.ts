@@ -1,3 +1,3 @@
-type Any = any
+type Any = any;
 
-export {Any}
+export { Any };

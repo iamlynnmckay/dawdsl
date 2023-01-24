@@ -1,12 +1,14 @@
-import {Type, Any, File} from "../common"
+import { Type, Any, File } from "../common";
 
 const InitializeProgram = [
-    {
-        name: 'InitializeProgram',
-        definition: {
-            program: (_1: Any, v: Any, _2: Any) => Type.string(v) ? JSON.parse(File.readSync(v)) : v
-        }
+  {
+    name: "InitializeProgram",
+    dependsOn: ["FindAndInitializeTestCase"],
+    definition: {
+      program: (_1: Any, v: Any, _2: Any) =>
+        Type.string(v) ? JSON.parse(File.readSync(v)) : v,
     },
-]
+  },
+];
 
-export {InitializeProgram}
+export { InitializeProgram };

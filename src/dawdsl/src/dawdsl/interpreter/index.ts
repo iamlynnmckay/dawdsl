@@ -1,3 +1,3 @@
-import {Interpreter} from "./Interpreter"
+import { Interpreter } from "./Interpreter";
 
-export {Interpreter}
+export { Interpreter };
