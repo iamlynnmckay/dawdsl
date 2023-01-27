@@ -28,10 +28,8 @@ export type PartiallyOrderedDoublyLinkedMap<Value> = {
 export type TotallyOrderedArray<Value> = Array<Value>;
 
 export function asTotallyOrderedArray<Value>(
-  a: PartiallyOrderedDoublyLinkedList<Value>
+  a: PartiallyOrderedSinglyLinkedMap<Value>
 ): TotallyOrderedArray<Value> {
-  const b = asPartiallyOrderedDoublyLinkedMap(a);
-  const c = asPartiallyOrderedSinglyLinkedMap(b);
   const depthFirstSearch = function (
     graph: PartiallyOrderedSinglyLinkedMap<Value>
   ): Array<Common.Key> {
@@ -59,7 +57,7 @@ export function asTotallyOrderedArray<Value>(
     );
     return stack;
   };
-  return depthFirstSearch(c).map((k) => c[k].value);
+  return depthFirstSearch(a).map((k) => a[k].value);
 }
 
 function asPartiallyOrderedDoublyLinkedMap<Value>(

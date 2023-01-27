@@ -1,3 +1,4 @@
+
 export class Type {
   static string<A>(a: A): boolean {
     return typeof a === "string";

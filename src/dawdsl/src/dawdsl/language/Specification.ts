@@ -11,9 +11,8 @@ export type Index = Common.Index;
 export type Key = Common.Key;
 export type Map = Common.Map<Value>;
 export type Number = Common.Number;
-export type Simple = boolean | Callback | number | string;
 export type String = Common.String;
-export type Value = Map | Simple;
+export type Value = Map | Callback;
 export type Specification = Value;
 export class Type {
   static Boolean = Common.Type.Boolean<boolean, Value>;
@@ -23,8 +22,6 @@ export class Type {
   static Map = Common.Type.Map<Map, Value>;
   static Number = Common.Type.Number<number, Value>;
   static String = Common.Type.String<string, Value>;
-  static Simple = (a: Value) =>
-    Type.Boolean(a) || Type.Number(a) || Type.String(a);
   static Value = Common.Type.Value<Value>;
   static Complex = Type.Map;
   static Specification = Type.Value;

@@ -6,8 +6,10 @@ export type Boolean = boolean;
 export type Index = number;
 export type Key = string;
 export type Null = null;
+export type Property = Key | Index
 export type Number = number;
 export type String = string;
+export type Callback<_Value> = ( _1: Key[], _2: _Value, _3: _Value) => _Value;
 export class Type {
   static Array = <_Array extends _Value, _Value>(a: _Value): a is _Array =>
     Array.isArray(a);
