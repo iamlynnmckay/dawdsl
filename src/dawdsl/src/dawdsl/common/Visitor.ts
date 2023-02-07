@@ -89,12 +89,6 @@ export class Visitor {
     object: Any,
     callback: Any
   ): Any {
-  }
-  static #byObjectOfNestedCallbacksIterator(callbacks: Any, object: Any) {
-    return Visitor.#deepIterator(
-      callbacks,
-      (keys: Any, callback: Any, _: Any) => {
-        if (Type.function(callback)) {
     return Visitor.#recursiveByArrayOfPropertiesIterator(
       properties,
       object,
@@ -102,6 +96,13 @@ export class Visitor {
       [],
       object
     );
+  }
+  static #byObjectOfNestedCallbacksIterator(callbacks: Any, object: Any) {
+    return Visitor.#deepIterator(
+      callbacks,
+      (keys: Any, callback: Any, _: Any) => {
+        if (Type.function(callback)) {
+          return Visitor.#byArrayOfPropertiesIterator(keys, object, callback);
         } else {
           return callback;
         }

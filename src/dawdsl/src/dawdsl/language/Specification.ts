@@ -1,11 +1,7 @@
 import * as Common from "./Common";
 import * as Program from "./Program";
 export type Boolean = Common.Boolean;
-export type Callback = (
-  _1: Program.Key[],
-  _2: Program.Value,
-  _3: Program.Program
-) => Program.Value;
+export type Callback = ( _1: Program.Key[], _2: Program.Value, _3: Program.Program) => Program.Value;
 export type Complex = Map;
 export type Index = Common.Index;
 export type Key = Common.Key;
