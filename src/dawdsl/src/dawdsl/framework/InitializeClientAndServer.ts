@@ -1,15 +1,27 @@
-import { Type, Any, File, Client, Server } from "../common";
-
-const InitializeClientAndServer = [
+import { Any, Is, Client, Server } from "../common";
+import { DirectedAcyclicGraph } from "../common/Graph";
+import {
+  String,
+  Integer,
+  Program,
+  Specification,
+  Property,
+} from "../common/Type";
+const InitializeClientAndServer: DirectedAcyclicGraph<Specification.Value> = [
   {
-    name: "InitializeClientAndServer",
-    definition: {
-      client: (_1: Any, v: Any, o: Any): Any => {
-        if (Type.undefined(v)) return;
+    key: "InitializeClientAndServer",
+    before: [],
+    after: [],
+    value: {
+      client: (
+        _1: Property[],
+        v: { port: Integer; address: string },
+        o: Program.Value
+      ): Any => {
         return new Client(v.port, v.address);
       },
       server: (_1: Any, v: Any, o: Any): Any => {
-        if (Type.undefined(v)) return;
+        if (Is.Undefined(v)) return;
         return new Server(v.port, v.address);
       },
     },

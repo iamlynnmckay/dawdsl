@@ -1,30 +1,35 @@
-import { Any, Type } from "../common";
-
-const ExecuteClientServerOrApplication = [
-  {
-    name: "ExecuteClientServerOrApplication",
-    dependsOn: [
-      "InitializeClientAndServer",
-      "InitializeCompilerAndInterpreter",
-      "InitializeProgram",
-    ],
-    definition: {
-      client: (_: Any, v: Any, o: Any): Any => {
-        if (Type.undefined(v)) return;
-        o.client.write(JSON.stringify(o.compiler.visit(o.program)));
-      },
-      server: (_: Any, v: Any, o: Any): Any => {
-        if (Type.undefined(v)) return;
-        o.server.listen((message: string) => {
-          o.interpreter.visit(JSON.parse(message));
-        });
-      },
-      application: (_: Any, v: Any, o: Any) => {
-        if (Type.undefined(v)) return;
-        o.interpreter.visit(o.compiler.visit(o.program));
+import { Any, Is } from "../common";
+import { DirectedAcyclicGraph } from "../common/Graph";
+import { Specification } from "../common/Type";
+import { DirectedAcyclicGraph } from "../common/Graph";
+import { Specification } from "../common/Type";
+const ExecuteClientServerOrApplication: DirectedAcyclicGraph<Specification.Value> =
+  [
+    {
+      key: "ExecuteClientServerOrApplication",
+      before: [
+        "InitializeClientAndServer",
+        "InitializeCompilerAndInterpreter",
+        "InitializeProgram",
+      ],
+      after: [],
+      value: {
+        client: (_: Any, v: Any, o: Any): Any => {
+          if (Is.Undefined(v)) return;
+          o.client.write(JSON.stringify(o.compiler(o.program)));
+        },
+        server: (_: Any, v: Any, o: Any): Any => {
+          if (Is.Undefined(v)) return;
+          o.server.listen((message: string) => {
+            o.interpreter(JSON.parse(message));
+          });
+        },
+        application: (_: Any, v: Any, o: Any) => {
+          if (Is.Undefined(v)) return;
+          o.interpreter(o.compiler(o.program));
+        },
       },
     },
-  },
-];
+  ];
 
 export { ExecuteClientServerOrApplication };

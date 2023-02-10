@@ -1,9 +1,11 @@
 import { Any } from "./Any";
-import { File } from "./File";
-import { Type } from "./Type";
 import { Client } from "./Client";
+import { File } from "./File";
+import * as Graph from "./Graph";
+import { Is } from "./Is";
 import { Server } from "./Server";
-import { Visitor } from "./Visitor";
-import { Maybe } from "./Maybe";
+import * as Query from "./Query";
+import * as Type from "./Type";
+import * as Visitor from "./Visitor";
 
-export { Any, File, Type, Client, Server, Visitor, Maybe };
+export { Any, Client, File, Graph, Is, Server, Query, Type, Visitor };

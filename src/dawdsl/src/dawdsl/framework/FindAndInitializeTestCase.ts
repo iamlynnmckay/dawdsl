@@ -1,25 +1,28 @@
-import { Type, Any, File } from "../common";
 import * as path from "path";
-
-const FindAndInitializeTestCase = [
+import { Any, Is, File } from "../common";
+import { DirectedAcyclicGraph } from "../common/Graph";
+import { Specification } from "../common/Type";
+const FindAndInitializeTestCase: DirectedAcyclicGraph<Specification.Value> = [
   {
-    name: "FindAndInitializeTestCase",
-    definition: {
+    key: "FindAndInitializeTestCase",
+    before: [],
+    after: [],
+    value: {
       test: {
         expected: (_: Any, v: Any, o: Any) => {
-          if (Type.undefined(o.test)) return;
-          if (Type.undefined(v)) {
-            v = path.parse(o.program).name + ".expected.json";
+          if (Is.Undefined(o.test)) return;
+          if (Is.Undefined(v)) {
+            v = path.parse(o.program).key + ".expected.json";
           }
-          if (Type.string(v)) {
+          if (Is.String(v)) {
             v = JSON.parse(File.readSync(v));
           }
           return v;
         },
         actual: (_: Any, v: Any, o: Any) => {
-          if (Type.undefined(o.test)) return;
-          if (Type.undefined(v)) {
-            v = path.parse(o.program).name + ".actual.json";
+          if (Is.Undefined(o.test)) return;
+          if (Is.Undefined(v)) {
+            v = path.parse(o.program).key + ".actual.json";
           }
           return v;
         },
