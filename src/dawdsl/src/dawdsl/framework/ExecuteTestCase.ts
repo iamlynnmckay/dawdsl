@@ -1,8 +1,7 @@
 import assert from "assert";
-import { Any, Is, File } from "../common";
-import { DirectedAcyclicGraph } from "../common/Graph";
-import { Specification } from "../common/Type";
-const ExecuteTest: DirectedAcyclicGraph<Specification.Value> = [
+import { Any, File, TypeOf } from "../std";
+import { Specification } from "../application";
+const ExecuteTest: Specification = [
   {
     key: "ExecuteTestCase",
     before: [
@@ -13,12 +12,15 @@ const ExecuteTest: DirectedAcyclicGraph<Specification.Value> = [
     after: [],
     value: {
       test: (_1: Any, v: Any, o: Any) => {
-        if (Is.Undefined(v)) return;
-        console.log("here");
-        const actual = o.interpreter.visit(o.compiler.visit(o.program));
-        File.writeSync(v.actual, JSON.stringify(actual));
-        v.actual = actual;
-        assert.deepEqual(v.expected, v.actual);
+        if (TypeOf.Undefined(v)) return;
+        o.program = {
+          program: o.interpreter({
+            program: o.compiler({ program: o.program }).program,
+          }).program,
+        };
+        File.writeSync(v.actual, JSON.stringify(o.program));
+        v.actual = o.program;
+        assert.deepEqual(v.actual, v.expected);
         return v;
       },
     },

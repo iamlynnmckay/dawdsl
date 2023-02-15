@@ -1,20 +1,18 @@
-import { Type, Any, File, Visitor } from "../common";
-import { Any, Is } from "../common";
-import { evaluate } from "../common/Evaluate";
-import { DirectedAcyclicGraph } from "../common/Graph";
-import { Specification } from "../common/Type";
+import { Specification, Evaluator } from "../application";
+import { Any } from "../std";
+
 const InitializeCompilerAndInterpreter = function (
-  compiler: Any,
-  interpreter: Any
-): DirectedAcyclicGraph<Specification.Value> {
+  compiler: Specification,
+  interpreter: Specification
+): Specification {
   return [
     {
       key: "InitializeCompilerAndInterpreter",
       before: [],
       after: [],
       value: {
-        compiler: (): Any => evaluate(compiler),
-        interpreter: (): Any => evaluate(interpreter),
+        compiler: (): Any => Evaluator.evaluate(compiler),
+        interpreter: (): Any => Evaluator.evaluate(interpreter),
       },
     },
   ];

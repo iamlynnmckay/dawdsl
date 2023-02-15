@@ -1,6 +1,1 @@
-[
-  {
-    "program": "./test/hello-world/hello-world.json",
-    "test": {}
-  }
-]
+["./test/hello-world/hello-world.json"]

@@ -1,23 +1,4 @@
-import {
-  Array,
-  Boolean,
-  Float,
-  Index,
-  Integer,
-  Key,
-  Map,
-  Null,
-  Number,
-  Object,
-  Primitive,
-  Program as _Program,
-  Property,
-  Program,
-  Specification as _Specification,
-  String,
-  Undefined,
-  Value,
-} from "./Type";
+type Key = string;
 
 type PartiallyOrderedSinglyLinkedListElement<Value> = {
   after: Key[];
@@ -44,15 +25,17 @@ type PartiallyOrderedDoublyLinkedMapElement<Value> =
 type PartiallyOrderedDoublyLinkedMap<Value> = {
   [_: Key]: PartiallyOrderedDoublyLinkedMapElement<Value>;
 };
-export type TotallyOrderedArray<Value> = Array<Value>;
+type TotallyOrderedArray<Value> = Array<Value>;
 
-export function asTotallyOrderedArray<Value>(
-  a: PartiallyOrderedDoublyLinkedList<Value>
+function asTotallyOrderedArray<Value>(
+  a: PartiallyOrderedSinglyLinkedMap<Value>
 ): TotallyOrderedArray<Value> {
   const depthFirstSearch = function (
     graph: PartiallyOrderedSinglyLinkedMap<Value>
   ): Array<Key> {
     const f = (current: Key, visited: Set<Key>, stack: Array<Key>) => {
+      if (visited.has(current)) return;
+      visited.add(current);
       graph[current].after.forEach((neighbor: Key) => {
         f(neighbor, visited, stack);
       });
@@ -67,12 +50,14 @@ export function asTotallyOrderedArray<Value>(
         }
       }
     );
-    return stack;
+    return stack.reverse();
   };
-  return depthFirstSearch(a).map((k) => a[k].value);
+  return depthFirstSearch(a).map((k) => {
+    return a[k].value;
+  });
 }
 
-export function asPartiallyOrderedDoublyLinkedMap<Value>(
+function asPartiallyOrderedDoublyLinkedMap<Value>(
   a: PartiallyOrderedDoublyLinkedList<Value>
 ): PartiallyOrderedDoublyLinkedMap<Value> {
   const d: PartiallyOrderedDoublyLinkedMap<Value> = {};
@@ -82,7 +67,7 @@ export function asPartiallyOrderedDoublyLinkedMap<Value>(
   }, d);
 }
 
-export function asPartiallyOrderedSinglyLinkedMap<Value>(
+function asPartiallyOrderedSinglyLinkedMap<Value>(
   a: PartiallyOrderedDoublyLinkedMap<Value>
 ): PartiallyOrderedSinglyLinkedMap<Value> {
   const b: PartiallyOrderedSinglyLinkedMap<Value> = {};
@@ -109,11 +94,12 @@ export function asPartiallyOrderedSinglyLinkedMap<Value>(
 
 export type DirectedAcyclicGraph<Value> =
   PartiallyOrderedDoublyLinkedList<Value>;
-export function asArray<Value>(
-  graph: DirectedAcyclicGraph<Value>
-): Array<Value> {
-  const a = asPartiallyOrderedDoublyLinkedMap(graph);
-  const b = asPartiallyOrderedSinglyLinkedMap(a);
-  const c = asTotallyOrderedArray(b);
-  return c;
+
+export class Graph {
+  static asArray<Value>(graph: DirectedAcyclicGraph<Value>): Array<Value> {
+    const a = asPartiallyOrderedDoublyLinkedMap(graph);
+    const b = asPartiallyOrderedSinglyLinkedMap(a);
+    const c = asTotallyOrderedArray(b);
+    return c;
+  }
 }

@@ -1,11 +1,10 @@
-import { DirectedAcyclicGraph } from "../common/Graph";
-import { Specification } from "../common/Type";
-const NoOp: DirectedAcyclicGraph<Specification.Value> = [
+import { Specification } from "../application";
+const NoOp: Specification = [
   {
     key: "NoOp",
     before: [],
     after: [],
-    definition: {},
+    value: {},
   },
 ];
 

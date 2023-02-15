@@ -1,11 +1,7 @@
-import { DirectedAcyclicGraph } from "../common/Graph";
-import { Specification } from "../common/Type";
+import { Specification } from "../application";
 import { NonEmptyDefaults } from "./NonEmptyDefaults";
 import { SensibleDefaults } from "./SensibleDefaults";
 
-const Compiler: DirectedAcyclicGraph<Specification.Value> = [
-  NonEmptyDefaults,
-  SensibleDefaults,
-].flat();
+const Compiler: Specification = [NonEmptyDefaults, SensibleDefaults].flat();
 
 export { Compiler };

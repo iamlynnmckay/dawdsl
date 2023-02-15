@@ -1,16 +1,14 @@
-import { SpawnOptions } from "child_process";
-import { Any, Is, File } from "../common";
-import { DirectedAcyclicGraph } from "../common/Graph";
-import { Program, Property, Specification, Value } from "../common/Type";
+import { Value, Specification } from "../application";
+import { TypeOf, File } from "../std";
 
-const InitializeProgram: DirectedAcyclicGraph<Specification.Value> = [
+const InitializeProgram: Specification = [
   {
     key: "InitializeProgram",
-    before: ["FindAndInitializeTestCase"],
+    before: [],
     after: [],
     value: {
-      program: (_1: Property[], v: Program.Value, _2: Program.Value) =>
-        Is.String(v) ? JSON.parse(File.readSync(v)) : v,
+      program: (_1: (string | number)[], v: Value, _2: Value) =>
+        TypeOf.String(v) ? JSON.parse(File.readSync(v)) : v,
     },
   },
 ];

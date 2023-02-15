@@ -1,40 +1,69 @@
-import { Any, Is } from "../common";
-import { DirectedAcyclicGraph } from "../common/Graph";
-import { Specification } from "../common/Type";
-const SensibleDefaults: DirectedAcyclicGraph<Specification.Value> = [
+import { Any, TypeOf } from "../std";
+import { Specification } from "../application";
+
+function applyDefaults(defaults: { [_: string]: Any }, object: Any) {
+  object = object || defaults;
+  Object.entries(defaults).forEach(
+    ([k, v]: [string, Any]) =>
+      (object[k] = TypeOf.Undefined(object[k]) ? v : object[k])
+  );
+  return object;
+}
+
+const SensibleDefaults: Specification = [
   {
     key: "SensibleDefaults",
     before: ["NonEmptyDefaults"],
     after: [],
     value: {
-      transport: {
-        lpb: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? 8 : v),
-      },
-      instruments: {
-        // phrase playback program: 0 = Off, 1-126 = specific phrase, 127 = keymap.
-        phrase_program: (_1: Any, v: Any, _2: Any) =>
-          Is.Undefined(v) ? 127 : v,
-      },
-      tracks: {
-        visible_note_columns: (_1: Any, v: Any, _2: Any) =>
-          Is.Undefined(v) ? 1 : v,
-        visible_effect_columns: (_1: Any, v: Any, _2: Any) =>
-          Is.Undefined(v) ? 0 : v,
-      },
-      patterns: {
-        number_of_lines: (_1: Any, v: Any, _2: Any) =>
-          Is.Undefined(v) ? 64 : v,
-      },
-      events: {
-        pattern: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? 0 : v),
-        track: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? 0 : v),
-        line: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? 0 : v),
-        instrument_value: (_1: Any, v: Any, _2: Any) =>
-          Is.Undefined(v) ? 0 : v,
-        volume_value: (_1: Any, v: Any, _2: Any) =>
-          Is.Undefined(v) ? 0x7f : v,
-        note_column: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? 0 : v),
-        effect_column: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? 0 : v),
+      program: {
+        transport: (_1: Any, v: Any, _2: Any) => {
+          return applyDefaults(
+            {
+              lpb: 8,
+            },
+            v
+          );
+        },
+        instruments: (_1: Any, v: Any, _2: Any) => {
+          return applyDefaults(
+            {
+              phrase_program: 127,
+            },
+            v
+          );
+        },
+        tracks: (_1: Any, v: Any, _2: Any) => {
+          return applyDefaults(
+            {
+              visible_note_columns: 1,
+              visible_effect_columns: 0,
+            },
+            v
+          );
+        },
+        patterns: (_1: Any, v: Any, _2: Any) => {
+          return applyDefaults(
+            {
+              number_of_lines: 64,
+            },
+            v
+          );
+        },
+        events: (_1: Any, v: Any, _2: Any) => {
+          return applyDefaults(
+            {
+              pattern: 0,
+              track: 0,
+              line: 0,
+              instrument_value: 0,
+              volume_value: 0x7f,
+              note_column: 0,
+              effect_column: 0,
+            },
+            v
+          );
+        },
       },
     },
   },

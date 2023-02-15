@@ -1,21 +1,22 @@
-import { Framework } from "../framework";
-import { Any } from "../common";
-import { evaluate } from "../common/Evaluate";
-import { execute } from "../common/Execute";
-import { Interpreter } from "../interpreter";
-import { Compiler } from "../compiler";
-import { DirectedAcyclicGraph } from "../common/Graph";
-import { Program, Specification } from "../common/Type";
+import { Any } from "../std";
+import { Evaluator } from "./Evaluator";
+import { Executor } from "./Executor";
+import { Specification, Value } from "./Type";
 
+type Framework = (
+  compiler: Specification,
+  interpreter: Specification
+) => Specification;
 export class Application {
-  #framework: DirectedAcyclicGraph<Specification.Value>;
+  #application: Specification;
   constructor(
-    compiler: DirectedAcyclicGraph<Specification.Value>,
-    interpreter: DirectedAcyclicGraph<Specification.Value>
+    framework: Framework,
+    compiler: Specification,
+    interpreter: Specification
   ) {
-    this.#framework = Framework(compiler, interpreter);
+    this.#application = framework(compiler, interpreter);
   }
   run(argument: Any): Value {
-    return execute(evaluate(this.#framework), argument);
+    return Executor.execute(Evaluator.evaluate(this.#application), argument);
   }
 }

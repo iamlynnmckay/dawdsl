@@ -1,18 +1,20 @@
-import { Any, Is } from "../common";
-import { DirectedAcyclicGraph } from "../common/Graph";
-import { Program, Specification } from "../common/Type";
+import { Any, TypeOf } from "../std";
+import { Specification } from "../application";
 
-const NonEmptyDefaults: DirectedAcyclicGraph<Specification.Value> = [
+const NonEmptyDefaults: Specification = [
   {
     key: "NonEmptyDefaults",
     before: [],
     after: [],
     value: {
-      transport: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? {} : v),
-      instruments: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? [] : v),
-      tracks: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? [] : v),
-      patterns: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? [] : v),
-      events: (_1: Any, v: Any, _2: Any) => (Is.Undefined(v) ? [] : v),
+      program: (_1: Any, v: Any, _2: Any) => {
+        v.transport = v.transport || {};
+        v.instruments = v.instruments || [];
+        v.tracks = v.tracks || [{}];
+        v.patterns = v.patterns || [{}];
+        v.events = v.events || [];
+        return v;
+      },
     },
   },
 ];

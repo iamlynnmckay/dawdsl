@@ -1,1 +1,7 @@
-{}
+{
+  "program": {},
+  "test": {
+    "expected": "./test/hello-world/hello-world.expected.json",
+    "actual": "./test/hello-world/hello-world.actual.json"
+  }
+}
