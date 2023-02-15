@@ -1,4 +1,5 @@
-const Renoise = {
+import { Any } from "../../stdjs";
+const Renoise: { [_: string]: Any } = {
   app: {
     load_instrument: (value: string) =>
       `renoise.app():load_instrument("${value}")`,
