@@ -1,8 +1,8 @@
-import { Compiler } from "./compiler";
-import { Interpreter } from "./interpreter";
-import { Application } from "./application";
-import { Framework } from "./framework";
+import { renoisedsl } from "./renoisedsl";
+import { Any } from "./stdjs";
 
-const dawdsl = new Application(Framework, Compiler, Interpreter);
-
-export { dawdsl };
+export function dawdsl(language: string, argument: Any): Any {
+  ({
+    renoise: renoisedsl,
+  })[language]?.run(argument);
+}

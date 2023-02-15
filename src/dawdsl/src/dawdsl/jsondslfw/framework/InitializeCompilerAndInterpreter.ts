@@ -1,5 +1,5 @@
 import { Specification, Evaluator } from "../application";
-import { Any } from "../std";
+import { Any } from "../../stdjs";
 
 const InitializeCompilerAndInterpreter = function (
   compiler: Specification,

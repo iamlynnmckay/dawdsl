@@ -8,7 +8,7 @@
     "format": "npx prettier --write .",
     "lint": "eslint . --ext .ts --fix",
     "build": "npm run clean && npm run format && npm run lint && tsc",
-    "test": "npm run build && node ./dist/index.js ./test/test.json"
+    "test": "npm run build && node ./dist/index.js renoise ./test/test.json"
   },
   "author": "iamlynnmckay",
   "license": "MIT",

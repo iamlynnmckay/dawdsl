@@ -1,5 +1,5 @@
-import { Any, TypeOf } from "../std";
-import { Specification } from "../application";
+import { Any, TypeOf } from "../../stdjs";
+import { Specification } from "../../jsondslfw";
 
 const NonEmptyDefaults: Specification = [
   {

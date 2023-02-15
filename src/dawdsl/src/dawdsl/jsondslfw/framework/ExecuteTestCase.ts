@@ -1,5 +1,5 @@
 import assert from "assert";
-import { Any, File, TypeOf } from "../std";
+import { Any, File, TypeOf } from "../../stdjs";
 import { Specification } from "../application";
 const ExecuteTest: Specification = [
   {

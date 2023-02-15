@@ -1,4 +1,4 @@
-import { Specification } from "../application";
+import { Specification } from "../../jsondslfw";
 import { NonEmptyDefaults } from "./NonEmptyDefaults";
 import { SensibleDefaults } from "./SensibleDefaults";
 

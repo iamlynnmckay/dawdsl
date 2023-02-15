@@ -1,4 +1,4 @@
-import { Graph } from "../std";
+import { Graph } from "../../stdjs";
 import { Query } from "./Query";
 import { Module, Specification, Value } from "./Type";
 

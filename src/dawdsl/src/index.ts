@@ -1,3 +1,3 @@
 import { dawdsl } from "./dawdsl";
 
-dawdsl.run(process.argv[2]);
+dawdsl(process.argv[2], process.argv[3]);

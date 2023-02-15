@@ -1,4 +1,4 @@
-import { DirectedAcyclicGraph } from "../std";
+import { DirectedAcyclicGraph } from "../../stdjs";
 export type Callback = (_1: string[], _2: Value, _3: Value) => Value;
 export type Module = { [_: string]: Module } | Callback;
 export type Specification = DirectedAcyclicGraph<Module>;

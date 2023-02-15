@@ -1,5 +1,5 @@
 import * as path from "path";
-import { Any, TypeOf, File } from "../std";
+import { Any, TypeOf, File } from "../../stdjs";
 import { Value } from "../application";
 import { Specification } from "../application";
 const FindAndInitializeTestCase: Specification = [

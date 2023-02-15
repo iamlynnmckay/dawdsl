@@ -1,4 +1,4 @@
-import { Any, TypeOf } from "../std";
+import { Any, TypeOf } from "../../stdjs";
 
 import { Specification } from "../application";
 

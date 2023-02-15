@@ -1,4 +1,4 @@
-import { TypeOf, File } from "../std";
+import { TypeOf, File } from "../../stdjs";
 import { Value } from "./Type";
 
 export class Executor {

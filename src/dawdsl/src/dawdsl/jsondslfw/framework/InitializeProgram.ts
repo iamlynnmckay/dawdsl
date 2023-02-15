@@ -1,5 +1,5 @@
 import { Value, Specification } from "../application";
-import { TypeOf, File } from "../std";
+import { TypeOf, File } from "../../stdjs";
 
 const InitializeProgram: Specification = [
   {

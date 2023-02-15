@@ -1,4 +1,4 @@
-import { Specification } from "../application";
+import { Specification } from "../../jsondslfw";
 const NoOp: Specification = [
   {
     key: "NoOp",

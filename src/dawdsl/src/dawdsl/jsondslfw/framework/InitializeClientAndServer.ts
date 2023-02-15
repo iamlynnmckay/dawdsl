@@ -1,5 +1,5 @@
 import { Specification } from "../application";
-import { Any, Client, TypeOf, Server } from "../std";
+import { Any, Client, TypeOf, Server } from "../../stdjs";
 
 const InitializeClientAndServer: Specification = [
   {

@@ -1,6 +1,5 @@
 import { Value, Module } from "./Type";
-import { TypeOf, Any } from "../std";
-import { Visitor } from "../std/Visitor";
+import { TypeOf, Any, Visitor } from "../../stdjs";
 
 type Key = string;
 type Index = number;

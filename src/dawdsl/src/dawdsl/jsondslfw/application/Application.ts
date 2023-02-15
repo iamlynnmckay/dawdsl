@@ -1,4 +1,4 @@
-import { Any } from "../std";
+import { Any } from "../../stdjs";
 import { Evaluator } from "./Evaluator";
 import { Executor } from "./Executor";
 import { Specification, Value } from "./Type";
