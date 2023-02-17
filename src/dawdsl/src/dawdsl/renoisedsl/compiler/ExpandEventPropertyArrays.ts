@@ -1,6 +1,5 @@
 import { Any, TypeOf } from "../../stdjs";
 import { Specification } from "../../jsondslfw";
-import { Renoise } from "../renoise/Renoise";
 
 const ExpandEventPropertyArrays: Specification = [
   {
