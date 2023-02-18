@@ -1,5 +1,8 @@
+import { Assert } from "../../stdjs/Assert";
+import { Calculator } from "./Calculator";
+
 ///
-class Pitch {
+export class Pitch {
   private static pitch_class_name_at_index(
     index: number,
     pitch_class_names: string[]
@@ -220,43 +223,47 @@ class Pitch {
     };
   }
 
-  private static parse_diatonic_syntactic_sugar(
-    syntactic_sugar: string
-  ): string {
-    syntactic_sugar = syntactic_sugar.toLowerCase();
+  private static parse_diatonic_syntactic_sugar(syntactic_sugar: string): {
+    note_string: string;
+  } {
     const pitch_constants = Pitch.diatonic_pitch_constants();
     const tokens = syntactic_sugar
       .split(".")
       .map((x) => Calculator.evaluate(x, pitch_constants));
+    let note_string = "";
     switch (tokens.length) {
       case 2:
         // <root_pitch_class>.<root_octave>
-        return Pitch.diatonic_pitch_name(0, tokens[0], tokens[1], 0, 0);
+        note_string = Pitch.diatonic_pitch_name(0, tokens[0], tokens[1], 0, 0);
+        break;
       case 4:
         // <scale_mode>.<root_pitch_class>.<root_octave>.<scale_degree>
-        return Pitch.diatonic_pitch_name(
+        note_string = Pitch.diatonic_pitch_name(
           tokens[0],
           tokens[1],
           tokens[2],
           tokens[3],
           0
         );
+        break;
       case 5:
         // <scale_mode>.<root_pitch_class>.<root_octave>.<scale_degree>.<pitch_adjustment>
-        return Pitch.diatonic_pitch_name(
+        note_string = Pitch.diatonic_pitch_name(
           tokens[0],
           tokens[1],
           tokens[2],
           tokens[3],
           tokens[4]
         );
+        break;
       default:
-        // @TODO: error
-        return "";
+        Assert.error();
+        break;
     }
+    return { note_string: note_string };
   }
 
-  public static evaluate(syntactic_sugar: string): string {
+  public static evaluate(syntactic_sugar: string): { note_string: string } {
     return Pitch.parse_diatonic_syntactic_sugar(syntactic_sugar);
   }
 }

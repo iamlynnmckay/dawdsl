@@ -4,7 +4,7 @@ import { Specification } from "../../jsondslfw";
 const ExpandEventPropertyArrays: Specification = [
   {
     key: "ExpandEventPropertyArrays",
-    before: [],
+    before: ["SensibleDefaults"],
     after: [],
     value: {
       program: {

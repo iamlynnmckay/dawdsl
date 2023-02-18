@@ -4,7 +4,7 @@ import { Specification } from "../../jsondslfw";
 const BeforeRenoiseLua: Specification = [
   {
     key: "BeforeRenoiseLua",
-    before: ["SensibleDefaults"],
+    before: ["ParsePitch", "ParseDuration"],
     after: [],
     value: {
       program: (_1: Any, v: Any, o: Any) => {

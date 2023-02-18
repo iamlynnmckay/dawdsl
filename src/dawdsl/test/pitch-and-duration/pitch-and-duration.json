@@ -1,0 +1,32 @@
+{
+  "program": {
+    "transport": {
+      "lpb": 12
+    },
+    "instruments": [
+      {
+        "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Keys/Space Piano.xrni"
+      }
+    ],
+    "patterns": [
+      {
+        "duration": 16
+      }
+    ],
+
+    "events": [
+      {
+        "pitch": "ionian.C#.4.perfect_fifth",
+        "duration": "1/2"
+      },
+      {
+        "pitch": ["ionian.C#.4.first", "ionian.C#.4.second"],
+        "duration": ["1/4", "1/4"]
+      }
+    ]
+  },
+  "test": {
+    "expected": "./test/pitch-and-duration/pitch-and-duration.expected.json",
+    "actual": "./test/pitch-and-duration/pitch-and-duration.actual.json"
+  }
+}

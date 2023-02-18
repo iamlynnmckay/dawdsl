@@ -1,4 +1,4 @@
-class Calculator {
+export class Calculator {
   private static readonly PRECEDENCE: { [key: string]: number } = {
     "+": 1,
     "-": 1,

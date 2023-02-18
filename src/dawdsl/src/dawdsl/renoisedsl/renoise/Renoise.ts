@@ -36,7 +36,7 @@ const Renoise: { [_: string]: Any } = {
     patterns: {
       clear: (pattern: number) => `renoise.song().patterns[${pattern}]:clear()`,
       number_of_lines: (pattern: number, value: number) =>
-        `renoise.song().patterns[${pattern}].number_of_lines: ${value}`,
+        `renoise.song().patterns[${pattern}].number_of_lines = ${value}`,
       tracks: {
         lines: {
           note_columns: {

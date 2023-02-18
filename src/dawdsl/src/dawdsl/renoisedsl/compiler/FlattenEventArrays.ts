@@ -1,16 +1,16 @@
 import { Any, TypeOf } from "../../stdjs";
 import { Specification } from "../../jsondslfw";
 
-const FlattenEventArray: Specification = [
+const FlattenEventArrays: Specification = [
   {
-    key: "FlattenEventArray",
-    before: ["ExpandEventArrays"],
+    key: "FlattenEventArrays",
+    before: ["ExpandEventPropertyArrays"],
     after: [],
     value: {
       program: (_1: Any, v: Any, _3: Any) => {
-        if (!v.events || v.events.size() == 0) return v;
+        if (!v.events || v.events.length == 0) return v;
         while (TypeOf.Array(v.events[0])) {
-          v.events = v.events.flatten();
+          v.events = v.events.flat();
         }
         return v;
       },
@@ -18,4 +18,4 @@ const FlattenEventArray: Specification = [
   },
 ];
 
-export { FlattenEventArray };
+export { FlattenEventArrays };
