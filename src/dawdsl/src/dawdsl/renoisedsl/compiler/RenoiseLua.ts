@@ -14,7 +14,7 @@ const RenoiseLua: Specification = [
           return v;
         },
         instruments: (p: Any, v: Any, o: Any) => {
-          const instrument = p[p.length - 1] + 1;
+          const instrument = p[p.length - 1];
           o.lua.push(Renoise.song.instruments.clear(instrument));
           o.lua.push(Renoise.song.selected_instrument_index(instrument));
           Object.entries(v).forEach(([k, v]: [string, Any]) => {
@@ -33,11 +33,11 @@ const RenoiseLua: Specification = [
           return v;
         },
         tracks: (p: Any, v: Any, o: Any) => {
-          const track = p[p.length - 1] + 1;
+          const track = p[p.length - 1];
           // by default there are 10 tracks
           const default_number_of_tracks = 10;
-          if (track > default_number_of_tracks) {
-            o.lua.push(Renoise.song.insert_track_at(track));
+          if (track + 1 > default_number_of_tracks) {
+            o.lua.push(Renoise.song.insert_track_at(track + 1));
           }
           Object.entries(v).forEach(([k, v]: [string, Any]) => {
             o.lua.push(Renoise.song.tracks[k](track, v));
@@ -45,12 +45,13 @@ const RenoiseLua: Specification = [
           return v;
         },
         patterns: (p: Any, v: Any, o: Any) => {
-          console.log(v);
-          const pattern = p[p.length - 1] + 1;
+          const pattern = p[p.length - 1];
           // by default there is 1 patterns
           const default_number_of_patterns = 1;
-          if (pattern > default_number_of_patterns) {
-            o.lua.push(Renoise.song.sequencer.insert_new_pattern_at(pattern));
+          if (pattern + 1 > default_number_of_patterns) {
+            o.lua.push(
+              Renoise.song.sequencer.insert_new_pattern_at(pattern + 1)
+            );
           }
           o.lua.push(Renoise.song.patterns.clear(pattern));
           Object.entries(v).forEach(([k, v]: [string, Any]) => {

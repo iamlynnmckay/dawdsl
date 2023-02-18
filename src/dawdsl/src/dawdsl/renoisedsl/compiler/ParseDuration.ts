@@ -16,6 +16,7 @@ const ParseDuration: Specification = [
           return v;
         },
         events: (k: Any, v: Any, o: Any) => {
+          if (!v.duration) return v;
           // find the next event after this event with the same instrument, track, and note column
           let next_index = k[k.length - 1];
           if (next_index == o.program.events.length - 1) return v;
@@ -42,7 +43,7 @@ const ParseDuration: Specification = [
           o.program.events[next_index].pattern = pattern;
           // update number of patterns
           // @@@TODO: HERE!!!
-          Assert.error()
+          //Assert.error();
           //while (o.program.patterns.length < pattern + 1) {
           // o.program.patterns.push(o.program.patterns[v.pattern]);
           //}

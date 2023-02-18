@@ -4,7 +4,7 @@ import { Specification } from "../../jsondslfw";
 const NonEmptyDefaults: Specification = [
   {
     key: "NonEmptyDefaults",
-    before: [],
+    before: ["CallBuiltInFunctions"],
     after: [],
     value: {
       program: (_1: Any, v: Any, _2: Any) => {

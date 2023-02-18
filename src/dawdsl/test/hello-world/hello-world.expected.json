@@ -3,7 +3,7 @@
     "renoise.song().transport.lpb = 8",
     "renoise.song().tracks[1].visible_note_columns = 1",
     "renoise.song().tracks[1].visible_effect_columns = 0",
-    "renoise.song().patterns[1]:clear()",
+    "renoise.song().patterns[0]:clear()",
     "renoise.song().patterns[1].number_of_lines = 64"
   ]
 }

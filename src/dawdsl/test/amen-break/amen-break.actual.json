@@ -1,0 +1,25 @@
+{
+  "program": [
+    "renoise.song().transport.lpb = 12",
+    "renoise.song().instruments[1]:clear()",
+    "renoise.song().selected_instrument_index = 1",
+    "renoise.app():load_instrument(\"/usr/local/share/renoise-3.4.2/Library/Instruments/Drums/GMKit - Analog Plastic.xrni\")",
+    "renoise.song().instruments[1].phrase_program = 127",
+    "renoise.song().tracks[1].visible_effect_columns = 0",
+    "renoise.song().tracks[1].visible_note_columns = 2",
+    "renoise.song().patterns[0]:clear()",
+    "renoise.song().patterns[1].number_of_lines = 64",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].instrument_value = 0",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].volume_value = 127",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].instrument_value = 0",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].volume_value = 127",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].instrument_value = 0",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].volume_value = 127",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].instrument_value = 0",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].volume_value = 127",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].instrument_value = 0",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].volume_value = 127",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].instrument_value = 0",
+    "renoise.song().patterns[1].tracks[1].lines[1].note_columns[1].volume_value = 127"
+  ]
+}

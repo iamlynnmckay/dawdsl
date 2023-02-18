@@ -10,6 +10,7 @@ const ParsePitch: Specification = [
     value: {
       program: {
         events: (_1: Any, v: Any, _2: Any) => {
+          if (!v.pitch) return v;
           v.note_string = Pitch.evaluate(v.pitch).note_string;
           v.pitch = undefined;
           return v;

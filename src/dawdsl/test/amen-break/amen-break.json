@@ -1,0 +1,132 @@
+{
+  "program": {
+    "transport": {
+      "lpb": 12
+    },
+    "instruments": [
+      {
+        "instrument_filename": "/usr/local/share/renoise-3.4.2/Library/Instruments/Drums/GMKit - Analog Plastic.xrni"
+      }
+    ],
+    "tracks": [
+      {
+        "visible_effect_columns": 0,
+        "visible_note_columns": 2
+      }
+    ],
+    "patterns": [
+      {
+        "duration": 16
+      }
+    ],
+    "events": [
+      {
+        "$flatten": [
+          {
+            "$repeat": [
+              29,
+              {
+                "___comment___": "Open hihatfor the first 14.5 beats.",
+                "note_column": 1,
+                "note_string": ["A#3"],
+                "duration": [0.5]
+              }
+            ]
+          },
+          {
+            "$repeat": [
+              1,
+              {
+                "___comment___": "Closed hihat on beat 14.5",
+                "note_column": 1,
+                "note_string": ["C#4"],
+                "duration": [0.5]
+              }
+            ]
+          },
+          {
+            "$repeat": [
+              2,
+              {
+                "___comment___": "Open hihat for beats 15 and 15.5.",
+                "note_column": 1,
+                "note_string": ["A#3"],
+                "duration": [0.5]
+              }
+            ]
+          },
+          {
+            "$repeat": [
+              2,
+              {
+                "___comment___": "Everything else, first two bars.",
+                "note_string": [
+                  "C-3",
+                  "C-3",
+                  "E-3",
+                  "E-3",
+                  "OFF",
+                  "E-3",
+                  "C-3",
+                  "C-3",
+                  "E-3",
+                  "E-3"
+                ],
+                "duration": [
+                  0.5, 0.5, 0.75, 0.25, 0.25, 0.25, 0.25, 0.25, 0.75, 0.25
+                ]
+              }
+            ]
+          },
+          {
+            "$repeat": [
+              1,
+              {
+                "___comment___": "Everything else, third bar.",
+                "note_string": [
+                  "C-3",
+                  "C-3",
+                  "E-3",
+                  "E-3",
+                  "OFF",
+                  "E-3",
+                  "C-3",
+                  "OFF",
+                  "E-3"
+                ],
+                "duration": [0.5, 0.5, 0.75, 0.25, 0.25, 0.25, 0.5, 0.5, 0.5]
+              }
+            ]
+          },
+          {
+            "$repeat": [
+              1,
+              {
+                "___comment___": "Everything else, third bar.",
+                "note_string": [
+                  "OFF",
+                  "E-3",
+                  "C-3",
+                  "C-3",
+                  "E-3",
+                  "E-3",
+                  "OFF",
+                  "E-3",
+                  "C-3",
+                  "E-3"
+                ],
+                "duration": [
+                  0.25, 0.25, 0.25, 0.25, 0.75, 0.25, 0.25, 0.25, 0.5, 0.5, 0.5
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "test": {
+    "expected": "./test/amen-break/amen-break.expected.json",
+    "actual": "./test/amen-break/amen-break.actual.json"
+  }
+}

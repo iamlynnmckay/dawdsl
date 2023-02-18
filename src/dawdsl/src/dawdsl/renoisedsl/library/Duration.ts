@@ -69,63 +69,51 @@ export class Duration {
   private static note_value_constants(): { [_: string]: number } {
     return {
       //
-      "8": 8,
       large: 8,
       duplex: 8,
       maxima: 8,
       octuple_note: 8,
       octuple_whole_note: 8,
       //
-      "4": 4,
       long: 4,
       longa: 4,
       quadruple_note: 4,
       quadruple_whole_note: 4,
       //
-      "2": 2,
       double_whole_note: 2,
       double_note: 2,
       breve: 2,
       //
-      "1": 1,
       whole_note: 1,
       semibreve: 1,
       //
-      "1/2": 1 / 2,
       half_note: 1 / 2,
       minim: 1 / 2,
       //
-      "1/4": 1 / 4,
       quarter_note: 1 / 4,
       crotchet: 1 / 4,
 
       //
-      "1/8": 1 / 8,
       eighth_note: 1 / 8,
       quaver: 1 / 8,
 
       //
-      "1/16": 1 / 16,
       sixteenth_note: 1 / 16,
       semiquaver: 1 / 16,
 
       //
-      "1/32": 1 / 32,
       "thirty-second_note": 1 / 32,
       demisemiquaver: 1 / 32,
 
       //
-      "1/64": 1 / 64,
       "sixty-fourth_note": 1 / 64,
       hemidemisemiquaver: 1 / 64,
 
       //
-      "1/128": 1 / 128,
       "hundred_twenty-eighth_note": 1 / 128,
       semihemidemisemiquaver: 1 / 128,
 
       //
-      "1/256": 1 / 256,
       "two_hundred_fifty-sixth_note": 1 / 256,
       demisemihemidemisemiquaver: 1 / 256,
     };
