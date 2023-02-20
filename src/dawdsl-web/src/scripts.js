@@ -2,40 +2,70 @@
 
     let name = 'dawdsl'
 
-    function response(event) {
-        document.getElementById(`${name}-output`).innerHTML = JSON.stringify(event, 2)
+    /*
+    */
+
+    class Dawdsl {
+        constructor() {
+            Dawdsl._createElementsForSchema(Dawdsl._SCHEMA)
+        }
+        static _NAME = 'dawdsl'
+        static _SCHEMA = [
+            [ { 'patterns': 4 } ],
+            [ { 'tracks': 4 } ],
+            [ { 'note_columns': 4}, {'effect_columns': 4} ],
+            [ 'note_string', 'volume_value' ]
+        ]
+        static _onclick(i, j) {
+
+        }
+        static _getRootElement() {
+            return document.getElementById(Dawdsl._NAME)
+        }
+        static _createRowElement(i) {
+            let root = Dawdsl._getRootElement()
+            let element = document.createElement('div')
+            element.classname = 'row'
+            element.onclick = () => Dawdsl._onclick(i)
+            root.appendChild(element)
+        }
+        static _createColumnElement(i, j, name, size) {
+            let root = Dawdsl._getRootElement().children[i]
+            let element = document.createElement('span')
+            element.className = 'column'
+            Array(size).map((_, k) => {
+                let nested = document.createElement('span')
+                nested.innerText = k
+                nested.className = 'nested'
+                element.appendChild(nested)
+            })
+            element.onclick = () => Dawdsl._onclick(i, j)
+            root.appendChild(element)
+        }
+        static _createTextElement(i, j, name) {
+            let root = Dawdsl._getRootElement().children[i]
+            let element = document.createElement('input')
+            element.className = 'column'
+            element.onclick = () => Dawdsl._onclick(i, j)
+            root.appendChild(element)
+        }
+        static _createElementsForSchema(schema) {
+            schema.map((x, i) => {
+                Dawdsl._createRowElement(i)
+                if (i == schema.length - 1) {
+                    x.map((y, j) => {
+                        Dawdsl._createTextElement(i, j, y)
+                    })
+                } else {
+                    x.map((y, j) => Object.entries(y).map(([k, v]) => {
+                        Dawdsl._createColumnElement(i, j, k, v)
+                    }))
+                }
+            })
+
+        }
     }
 
-    function request() {
-        socket.send(document.getElementById(`${name}-input`).innerHTML)
-    }
-
-    function connect() {
-        let port = 49151
-        let socket = new WebSocket(`wss://localhost:${port}`)
-
-        socket.onopen = response
-        socket.onmessage = response
-        socket.onclose = response
-        socket.onerror = response
-
-        return socket
-    }
-
-
-    function embed() {
-        document.getElementById(`${name}`).innerHTML = `
-            <div>
-                <textarea id="${name}-input" rows="10" cols="80"></textarea>
-                <br/>
-                <button onclick="request()">Submit</button>
-                <br/>
-                <textarea id="${name}-output" rows="10" cols="80"></textarea>
-            </div>
-        `
-        return connect()
-    }
-
-    embed()
+    let self = new Dawdsl()
 
 })()
