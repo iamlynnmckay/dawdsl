@@ -4,18 +4,26 @@
     <title></title>
     <link rel="stylesheet" href="src/styles.css" />
     <style>
-      body,
-      input,
-      textarea {
+      body {
         background-color: black;
+      }
+      .dawdsl,
+      .dawdsl textarea,
+      .dawdsl input,
+      .dawdsl div,
+      .dawdsl span {
+        background-color: black;
+        font-family: monospace;
+        color: white;
+        outline: none;
+        resize: none;
       }
       div,
       span,
       textarea,
       input {
-        font-family: monospace;
-        color: white;
         text-align: center;
+        padding: 6px;
       }
       span:hover {
         border-color: cyan;
@@ -24,13 +32,15 @@
         border-color: magenta;
       }
       textarea:focus,
-      input:focus {
+      input:focus,
+      input:hover,
+      textarea:hover {
         outline: none;
-        border: 2.5px solid magenta;
-        padding: 6px;
+        border: 1px solid magenta;
       }
-      textarea {
-        resize: none;
+      textarea,
+      input {
+        border: 1px solid white;
       }
       canvas {
         width: 100%;
@@ -39,9 +49,9 @@
       div {
         border: 0.5px dotted white;
       }
-      div:hover > * {
+      /*div:hover > * {
         border: 0px dotted white;
-      }
+      }*/
       div > div > div > div {
         padding: 6px;
       }
@@ -62,7 +72,7 @@
     </style>
   </head>
   <body>
-    <div id="dawdsl"></div>
+    <div id="dawdsl" class="dawdsl"></div>
     <script defer src="bundle.js"></script>
   </body>
 </html>

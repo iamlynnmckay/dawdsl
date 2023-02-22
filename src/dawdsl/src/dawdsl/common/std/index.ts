@@ -4,3 +4,4 @@ export * from "./Math";
 export * from "./TypeOf";
 export * from "./Visitor";
 export * from "./Any";
+export * from "./Color";

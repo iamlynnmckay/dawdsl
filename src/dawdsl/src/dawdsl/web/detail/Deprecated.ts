@@ -1,3 +1,4 @@
+import { Color } from "../std";
 export function deprecated() {
   const name = "dawdsl";
 
@@ -16,9 +17,24 @@ export function deprecated() {
 
   type Program = {
     program: {
+      transport: {
+        lpb: string;
+      };
+      instruments: {
+        name: string;
+        phrase_program: string;
+        filepath: string;
+        sample_filepath: string;
+      }[];
       patterns: {
         number_of_lines: string;
         tracks: {
+          visible_note_columns: string;
+          visible_effect_columns: string;
+          volume_colum_visible: string;
+          panning_column_visible: string;
+          delay_column_visible: string;
+          sample_effects_column_visible: string;
           note_columns: {
             note_value: string;
             note_string: string;
@@ -52,9 +68,10 @@ export function deprecated() {
     return eval(document.getElementsByTagName("textarea")![0].value);
   }
   function fun2(x: number) {
-    return Math.sin(x);
+    return Math.sin(Math.random());
   }
 
+  // @TODO: remove after testing
   function draw() {
     const canvas: HTMLCanvasElement =
       document.getElementsByTagName("canvas")[0];
@@ -70,10 +87,12 @@ export function deprecated() {
       scale: 50, // 10 pixels from x=0 to x=1
       doNegativeX: true,
     };
-
+    const c1 = Color.randomHexColorHighContrast();
+    const c2 = Color.hashedHexColorHighContrast(c1);
     showAxes(ctx, axes);
     funGraph(ctx, axes, fun1, "magenta", 2);
-    funGraph(ctx, axes, fun2, "cyan", 2);
+    funGraph(ctx, axes, fun2, `${c1}`, 2);
+    funGraph(ctx, axes, fun2, `${c2}`, 2);
   }
 
   function funGraph(
@@ -136,6 +155,8 @@ export function deprecated() {
             <div>
             <pre>{}</pre>
             </div>
+            <div>
+            <input type="color"></input>
             <div>
             <textarea></textarea>
             </div>
