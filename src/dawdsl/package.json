@@ -4,11 +4,26 @@
   "description": "",
   "main": "./dist/dawdsl/index.js",
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "format": "npx prettier --write .",
-    "lint": "eslint . --ext .ts --fix",
-    "build": "npm run clean && npm run format && npm run lint && tsc",
-    "test": "npm run build && node ./dist/index.js renoise ./test/test.json"
+    "rm-rf-dist-static": "rm -rf ./dist ./static",
+    "mkdir-p-static": "mkdir -p static",
+    "prettier": "npx prettier --write .",
+    "eslint": "eslint . --ext .ts --fix",
+    "webpack": "webpack",
+    // "http-server": "http-server",
+    // "webpack-watch": "webpack --watch",
+    "webpack-dev-server": "webpack-dev-server",
+    "browserify": "browserify ./src/index.ts -p tsify > ./dist/bundle.js",
+    // "watchify": "watchify ./src/index.ts -p tsify -o 'uglify -cm' > ./dist/bundle.min.js",
+    "backend-uglify": "uglify --compress --mangle ./dist/bundle.js",
+    "frontend-uglify": "uglify --compress --mangle ./static/bundle.js",
+    "preprocess": "npm run rm-rf-dist-static && npm run mkdir-p-static && npm run prettier && npm run eslint",
+    "backend-build": "npm run tsc && npm run browserify && npm run backend-uglify",
+    "frontend-build": "npm run webpack && npm run frontend-uglify",
+    "build": "npm run preprocess && npm run backend-build && npm-run frontend-build",
+    "backend-test": "node ./dist/index.js renoise ./test/test.json",
+    "frontend-test": "echo todo",
+    "test": "npm run build && npm run backend-test && npm run frontend-test",
+    "watch": "npm run test && npm run webpack-dev-server"
   },
   "author": "iamlynnmckay",
   "license": "MIT",
@@ -16,8 +31,11 @@
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
+    "browserify": "^17.0.0",
     "eslint": "^8.32.0",
     "prettier": "2.8.3",
-    "typescript": "^4.9.4"
+    "tsify": "^5.0.4",
+    "typescript": "^4.9.4",
+    "watchify": "^4.0.0"
   }
 }
