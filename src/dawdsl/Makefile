@@ -1,4 +1,4 @@
 .PHONY: all
 
 all:
-	npm run watch
+	npm run all
