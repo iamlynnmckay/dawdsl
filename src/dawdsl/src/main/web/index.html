@@ -7,6 +7,7 @@
       body {
         background-color: black;
       }
+      /* dawdsl */
       .dawdsl,
       .dawdsl textarea,
       .dawdsl input,
@@ -15,60 +16,80 @@
         background-color: black;
         font-family: monospace;
         color: white;
-        outline: none;
+      }
+      .dawdsl textarea,
+      .dawdsl input {
         resize: none;
+        outline: none;
+        border: 1px solid white;
       }
-      div,
-      span,
-      textarea,
-      input {
-        text-align: center;
-        padding: 6px;
-      }
-      span:hover {
-        border-color: cyan;
-      }
-      span:active {
-        border-color: magenta;
-      }
-      textarea:focus,
-      input:focus,
-      input:hover,
-      textarea:hover {
+      .dawdsl textarea:focus,
+      .dawdsl input:focus,
+      .dawdsl input:hover,
+      .dawdsl textarea:hover {
         outline: none;
         border: 1px solid magenta;
       }
-      textarea,
-      input {
-        border: 1px solid white;
-      }
-      canvas {
+      .dawdsl canvas {
+        height: 100%;
         width: 100%;
       }
-      /**/
-      div {
-        border: 0.5px dotted white;
+      /* DEBUG */
+      .dawdsl div {
+        /*border: 0.5px dotted white;*/
       }
-      /*div:hover > * {
-        border: 0px dotted white;
-      }*/
-      div > div > div > div {
-        padding: 6px;
+      .dawdsl.tree li,
+      .dawdsl.tree ul {
+        padding: 2px;
+      }
+      .dawdsl.tree li span {
+        padding: 1px;
+      }
+      .dawdsl.tree ul {
+        padding-left: 16px;
+      }
+      .dawdsl.tree span:hover {
+        color: cyan;
+      }
+      .dawdsl.tree span:active {
+        color: magenta;
+      }
+      .dawdsl.tree ul {
+        list-style-type: none;
+      }
+      .dawdsl.tree ul {
+        display: none
+      }
+      .dawdsl.tree .root, .dawdsl.tree li.onclick > ul {
+        display: block;
+      }
+      ul.dawdsl.tree li:before,
+      .dawdsl.tree li.object:before,
+      .dawdsl.tree li.array:before {
+        content: '+ '
+      }
+      .dawdsl.tree li.onclick.object:before,
+      .dawdsl.tree li.onclick.array:before {
+        content: '- '
+      }
+     .dawdsl.tree li.string:before {
+        content: '> '
+      }
+      .dawdsl.tree .onclick > span {
+        color: magenta
+      }
+      /**/
+      .dawdsl.tree > div >  ul {
+        float: left;
+      }
+      .dawdsl.tree textarea {
+        float: right;
+        width: 300px;
+        height: 200px;
+        margin-right: 100px;
       }
 
-      span,
-      input,
-      textarea {
-        padding: 2px;
-        margin: 2px;
-      }
-      span {
-        border: 1px solid white;
-      }
-      textarea {
-        width: 50%;
-        height: 100%;
-      }
+
     </style>
   </head>
   <body>
