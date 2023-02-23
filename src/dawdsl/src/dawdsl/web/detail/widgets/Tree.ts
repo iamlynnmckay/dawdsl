@@ -324,13 +324,17 @@ function parseTree(tree: Tree): string {
     if (TypeOf.String(v)) {
       return `<li class='string' ><span data-id="${id}">${label}</span></li>`;
     } else if (TypeOf.Array(v)) {
-      return `<li class='array' ><span data-id="${id}">${label}</span><ul>${(
+      return `<li class='array' ><span data-id="${id}">${label}</span>
+      
+      <ul>${(
         v as Tree[]
       )
         .map(parseTree)
         .join("")}</ul></li>`;
     } else {
-      return `<li  class='object'><span data-id="${id}">${label}</span><ul>${parseTree(
+      return `<li  class='object'><span data-id="${id}">${label}</span>
+      
+      <ul>${parseTree(
         v as Tree
       )}</ul></li>`;
     }
@@ -372,7 +376,7 @@ export function processTreeWidget(memory: {[_:string]:string}, classList: string
   .map(span => span.onclick = () => {
     let li = (span as HTMLElement).parentElement!;
     let path = ''
-    HTMLHelper.querySelectorAll('.string', li.parentElement!).map(e => e.classList.remove('onclick'))
+    HTMLHelper.querySelectorAll('.string').map(e => e.classList.remove('onclick'))
     if (li.classList.contains('onclick')) {
         path = (li.parentElement!.parentElement!.children[0] as HTMLElement).dataset.id! 
         li.classList.remove('onclick')
@@ -389,4 +393,7 @@ export function processTreeWidget(memory: {[_:string]:string}, classList: string
     HTMLHelper.querySelectorAll(`.${classList.join('.')} .path`).map(e => e.innerHTML = path)
     }
   })
+
+
+
 }
