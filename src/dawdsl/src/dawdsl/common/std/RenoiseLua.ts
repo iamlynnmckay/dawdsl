@@ -1,6 +1,6 @@
-import { Any } from "../../../std";
+import { Any } from "./Any";
 
-const Renoise: { [_: string]: Any } = {
+const RenoiseLua: { [_: string]: Any } = {
   app: {
     load_instrument: (value: string) =>
       `renoise.app():load_instrument("${value}")`,
@@ -195,4 +195,4 @@ const Renoise: { [_: string]: Any } = {
   },
 };
 
-export { Renoise };
+export { RenoiseLua as Renoise };

@@ -1,6 +1,5 @@
 import { Specification } from "../../../framework";
-import { Renoise } from "../detail";
-import { Any, TypeOf } from "../../../std";
+import { Any, TypeOf, Renoise } from "../../../std";
 
 const RenoiseLua: Specification = [
   {

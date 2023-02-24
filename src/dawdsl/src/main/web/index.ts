@@ -1,3 +1,5 @@
-import { dawdsl } from "../../dawdsl/web";
+import { Dawdsl } from "../../dawdsl/web";
 
-dawdsl();
+const dawdsl = new Dawdsl();
+dawdsl.gui();
+//dawdsl.api();

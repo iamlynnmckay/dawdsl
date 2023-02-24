@@ -1,1 +1,1 @@
-export { GUI as dawdsl } from "./api";
+export * from "./api";

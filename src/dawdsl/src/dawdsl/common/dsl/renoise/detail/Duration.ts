@@ -1,6 +1,7 @@
 import * as std from "../../../std";
 import { Assert } from "../../../std/Assert";
-import { Calculator } from "./Calculator";
+export class Duration {}
+/*
 
 ///
 export class Duration {
@@ -138,14 +139,14 @@ export class Duration {
       switch (tokens.length) {
         case 1:
           // <number_of_beats> (duration)
-          number_of_beats = Calculator.evaluate(
+          number_of_beats = std.Calculator.evaluate(
             tokens[0],
             note_value_constants
           );
           break;
         case 2:
           // <dotted_value>.<number_of_beats>
-          Calculator.evaluate(tokens[1], note_value_constants);
+          std.Calculator.evaluate(tokens[1], note_value_constants);
           Array(dotted_value_constants[tokens[0]]).forEach(
             (_) =>
               (number_of_beats = number_of_beats + (number_of_beats * 1) / 2)
@@ -197,3 +198,4 @@ export class Duration {
 }
 
 ///
+*/

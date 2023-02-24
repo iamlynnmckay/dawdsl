@@ -58,38 +58,37 @@
         list-style-type: none;
       }
       .dawdsl.tree ul {
-        display: none
+        display: none;
       }
-      .dawdsl.tree .root, .dawdsl.tree li.onclick > ul {
+      .dawdsl.tree .root,
+      .dawdsl.tree li.onclick > ul {
         display: block;
       }
       ul.dawdsl.tree li:before,
       .dawdsl.tree li.object:before,
       .dawdsl.tree li.array:before {
-        content: '+ '
+        content: "+ ";
       }
       .dawdsl.tree li.onclick.object:before,
       .dawdsl.tree li.onclick.array:before {
-        content: '- '
+        content: "- ";
       }
-     .dawdsl.tree li.string:before {
-        content: '> '
+      .dawdsl.tree li.string:before {
+        content: "> ";
       }
       .dawdsl.tree .onclick > span {
-        color: magenta
+        color: magenta;
       }
       /**/
-      .dawdsl.tree > div >  ul {
+      .dawdsl.tree .root {
         float: left;
       }
-      .dawdsl.tree textarea {
+      .dawdsl.editor textarea {
         float: right;
         width: 300px;
         height: 200px;
         margin-right: 100px;
       }
-
-
     </style>
   </head>
   <body>

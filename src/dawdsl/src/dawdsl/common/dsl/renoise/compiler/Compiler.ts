@@ -5,8 +5,6 @@ import { CallBuiltInFunctions } from "./CallBuiltInFunctions";
 import { ExpandEventPropertyArrays } from "./ExpandEventPropertyArrays";
 import { FlattenEventArrays } from "./FlattenEventArrays";
 import { NonEmptyDefaults } from "./NonEmptyDefaults";
-import { ParseDuration } from "./ParseDuration";
-import { ParsePitch } from "./ParsePitch";
 import { RenoiseLua } from "./RenoiseLua";
 import { SensibleDefaults } from "./SensibleDefaults";
 
@@ -19,8 +17,6 @@ const Compiler: Specification = [
   AfterRenoiseLua,
   ExpandEventPropertyArrays,
   FlattenEventArrays,
-  ParseDuration,
-  ParsePitch,
 ].flat();
 
 export { Compiler };
