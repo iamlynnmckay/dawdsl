@@ -1,5 +1,5 @@
 import { Library } from "../../common/api";
-import { Main } from "../detail/components/Main";
+import { Main } from "../detail/Main";
 
 export class Dawdsl {
   private memory: { [_: string]: string };

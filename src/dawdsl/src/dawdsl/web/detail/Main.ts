@@ -1,13 +1,14 @@
-import { RenoiseJson } from "../../../common/std/RenoiseJson";
-import { Any } from "../../std";
-import { Canvas } from "./Canvas";
-import { Component } from "./Component";
-import { Editor } from "./Editor";
+import { RenoiseJson } from "../../common/std/RenoiseJson";
+import { Any } from "../std";
+import { Canvas } from "./components/Canvas";
+import { Component } from "./components/Component";
+import { Editor } from "./components/TextArea";
 import { Help } from "./Help";
 import { Json } from "./Json";
+import {Log} from "./components/InnerTextListener"
 import { Lua } from "./Lua";
 import { Status } from "./Status";
-import { Tree, _Tree } from "./Tree";
+import { Tree, _Tree } from "./components/List";
 
 export const PROGRAM: RenoiseJson = {
   program: {
@@ -280,6 +281,7 @@ export class Main {
       help: new Help(classList.concat(["help"])),
       json: new Json(classList.concat(["json"])),
       lua: new Lua(classList.concat(["lua"])),
+      log: new Log(classList.concat(["log"])),
       status: new Status(classList.concat(["status"])),
       // @TODO: revisit type conversion here
       tree: new Tree(classList.concat(["tree"]), PROGRAM as unknown as _Tree),
@@ -288,6 +290,7 @@ export class Main {
        'status', 
       'json', 
       'lua',
+      'log',
       'help', 
       'canvas',
        'tree',
@@ -300,6 +303,29 @@ export class Main {
     return this.element;
   }
   public build(memory: { [_: string]: string }): void {
-    Object.values(this.children).map((child) => child.build(memory));
+    Object.values(this.children).map((child) => child.build());
+
+    Html.querySelectorAll(`#${this.getElement().id}`).map((element: HTMLElement) => {
+      // on tree click
+      element.addEventListener(`${this.getElement().id}-tree`, (e) => {
+        e.target?.dispatchEvent(`${this.getElement().id}-status`, new CustomEvent({
+
+        }))
+      })
+    })
+
+    /*
+    - @@@TODO: all of this can be done via functions in std/html, you don't even need the subcomponent classes, and the canvas drawing logic should be kept separate from the actual canvas element anyway, just add a new special creation scenario for canvas like you did for list
+    */
+    on list click event
+      update status with path
+      update textarea with value from memory
+    on text area event enter keypress event
+      do update memory with value
+      do update json with value
+      do update log with calculation
+      do update lua with compilation
+      do update canvas with calculation
+
   }
 }

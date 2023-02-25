@@ -4,28 +4,28 @@ import { Component } from "./Component";
 export type _Tree = { [key: string]: string | Tree | Tree[] };
 
 export class Tree extends Component {
-  private static parseTree(class_: string, tree: _Tree): string {
+  private static parseTree(tree: _Tree): string {
     function parseTreeRecursive(tree: _Tree): string {
       return Visitor.deepVisitor(tree, (k: Any, v: Any, t: Any) => {
         if (k.length === 0) return v;
         const id = k.join(".");
         const label = k[k.length - 1];
         if (TypeOf.String(v)) {
-          return `<li class='${class_} string' ><span data-id="${id}">${label}</span></li>`;
+          return `<li id="${id}" class='string'><span>${label}</span></li>`;
         } else if (TypeOf.Array(v)) {
-          return `<li class='${class_} array' ><span data-id="${id}">${label}</span>
+          return `<li id="${id}" class='array'><span>${label}</span>
                 
                 <ul>${(v as _Tree[])
                   .map((v) => parseTreeRecursive(v))
                   .join("")}</ul></li>`;
         } else {
-          return `<li  class='${class_} object'><span data-id="${id}">${label}</span>
+          return `<li id="${id}" class='object'><span>${label}</span>
                 
                 <ul>${parseTreeRecursive(v as _Tree)}</ul></li>`;
         }
       });
     }
-    return `<ul class="${class_} root">${parseTreeRecursive(tree)}</ul>`;
+    return `<ul class="root">${parseTreeRecursive(tree)}</ul>`;
   }
 
   constructor(classList: string[], tree: _Tree) {

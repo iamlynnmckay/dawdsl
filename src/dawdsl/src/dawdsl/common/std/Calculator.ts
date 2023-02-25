@@ -71,10 +71,9 @@ export class Calculator {
       /[1-9][0-9]*(.[0-9]+)?/g,
       (token: string) => `Number(${token})`
     );
-
-
+      let error = false
     expression = expression.replace(
-      /String\(.*\)|Number\(.*\)|\W+|\w+/g,
+      /String\(.*\)|Number\(.*\)|\$[1-9][0-9]*|\W+|\w+/g,
       (token: string): string => {
         if (Calculator.RESERVED_OPERATORS.includes(token)) {
           return token;
@@ -82,25 +81,18 @@ export class Calculator {
           return `Math.${token}`;
         } else if (Object.keys(this.functors).includes(token)) {
           return `_.${token}`;
-        } else {
-
-          /*
-          
-          
-          ERROR: you need to allow for function arguments, either use '$1' or '_1' whichever feels nicer, maybe '$1' as it corresponds to bash
-          
-          
-          
-          
-          */
-
-          console.log(token)
-          Assert.true(
-            token.match(/String\(.*\)/) !== null || token.match(/Number\(.*\)/) !== null || token.match(/\w+/) !== null)
+        } else if (token.match(/\$[1-9][0-9]*/) !== null) {
           return token
+        } else {
+          error = true
+          return ''
         }
       }
     );
-    return new Function(`((_)=>(${expression}))`)(this.functors);
+    if (!error) {
+      return new Function(`((_)=>(${expression}))`)(this.functors);
+    } else {
+      return ()=>undefined
+    }
   }
 }
