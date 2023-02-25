@@ -1,32 +1,9 @@
 import { Html, Visitor, Any, TypeOf } from "../../std";
 import { Component } from "./Component";
 
-export type _Tree = { [key: string]: string | Tree | Tree[] };
 
 export class Tree extends Component {
-  private static parseTree(tree: _Tree): string {
-    function parseTreeRecursive(tree: _Tree): string {
-      return Visitor.deepVisitor(tree, (k: Any, v: Any, t: Any) => {
-        if (k.length === 0) return v;
-        const id = k.join(".");
-        const label = k[k.length - 1];
-        if (TypeOf.String(v)) {
-          return `<li id="${id}" class='string'><span>${label}</span></li>`;
-        } else if (TypeOf.Array(v)) {
-          return `<li id="${id}" class='array'><span>${label}</span>
-                
-                <ul>${(v as _Tree[])
-                  .map((v) => parseTreeRecursive(v))
-                  .join("")}</ul></li>`;
-        } else {
-          return `<li id="${id}" class='object'><span>${label}</span>
-                
-                <ul>${parseTreeRecursive(v as _Tree)}</ul></li>`;
-        }
-      });
-    }
-    return `<ul class="root">${parseTreeRecursive(tree)}</ul>`;
-  }
+
 
   constructor(classList: string[], tree: _Tree) {
     super(classList);

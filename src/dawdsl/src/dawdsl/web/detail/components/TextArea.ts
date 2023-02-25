@@ -2,7 +2,7 @@ import { Html } from "../../../../../static/bundle";
 import { Assert } from "../../std";
 import { Component } from "./Component";
 
-export class Editor extends Component {
+export class TextArea extends Component {
   constructor(classList: string[]) {
     super(classList);
     this.getElement().innerHTML = `<textarea class="${classList.join(
