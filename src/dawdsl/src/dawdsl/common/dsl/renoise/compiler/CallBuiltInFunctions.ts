@@ -9,7 +9,7 @@ const BUILT_IN_FUNCTION: { [_: string]: (...as: Any[]) => Any } = {
 const CallBuiltInFunctions: Specification = [
   {
     key: "CallBuiltInFunctions",
-    before: [],
+    before: ["TranslateSyntacticSugar"],
     after: [],
     value: {
       program: (_1: Any, v: Any, _2: Any) => {

@@ -71,7 +71,7 @@ export class Calculator {
       /[1-9][0-9]*(.[0-9]+)?/g,
       (token: string) => `Number(${token})`
     );
-      let error = false
+    let error = false;
     expression = expression.replace(
       /String\(.*\)|Number\(.*\)|\$[1-9][0-9]*|\W+|\w+/g,
       (token: string): string => {
@@ -82,17 +82,17 @@ export class Calculator {
         } else if (Object.keys(this.functors).includes(token)) {
           return `_.${token}`;
         } else if (token.match(/\$[1-9][0-9]*/) !== null) {
-          return token
+          return token;
         } else {
-          error = true
-          return ''
+          error = true;
+          return "";
         }
       }
     );
     if (!error) {
       return new Function(`((_)=>(${expression}))`)(this.functors);
     } else {
-      return ()=>undefined
+      return () => undefined;
     }
   }
 }

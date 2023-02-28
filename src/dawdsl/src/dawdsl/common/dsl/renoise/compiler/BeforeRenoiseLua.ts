@@ -4,7 +4,7 @@ import { Any } from "../../../std";
 const BeforeRenoiseLua: Specification = [
   {
     key: "BeforeRenoiseLua",
-    before: [],
+    before: ["FlattenEventArrays"],
     after: [],
     value: {
       program: (_1: Any, v: Any, o: Any) => {
