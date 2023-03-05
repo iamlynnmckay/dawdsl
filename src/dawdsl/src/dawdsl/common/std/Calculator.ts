@@ -60,6 +60,9 @@ export class Calculator {
         .includes(false)
     );
   }
+  public static evaluate(expression: string, functors: Functors) {
+    return new Calculator(functors).eval(expression);
+  }
 
   public eval(expression: string): Any {
     expression = expression.replace(/\s+/gm, "");

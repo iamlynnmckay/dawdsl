@@ -7,6 +7,7 @@ import { FlattenEventArrays } from "./FlattenEventArrays";
 import { NonEmptyDefaults } from "./NonEmptyDefaults";
 import { RenoiseLua } from "./RenoiseLua";
 import { SensibleDefaults } from "./SensibleDefaults";
+import { TranslateSyntacticSugar } from "./TranslateSyntacticSugar";
 
 const Compiler: Specification = [
   NonEmptyDefaults,
@@ -17,6 +18,7 @@ const Compiler: Specification = [
   AfterRenoiseLua,
   ExpandEventPropertyArrays,
   FlattenEventArrays,
+  TranslateSyntacticSugar,
 ].flat();
 
 export { Compiler };

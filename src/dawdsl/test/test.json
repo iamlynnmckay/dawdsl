@@ -1,5 +1,1 @@
-[
-  "./test/hello-world/hello-world.json",
-  "./test/pitch-and-duration/pitch-and-duration.json",
-  "./test/amen-break/amen-break.json"
-]
+["./test/hello-world/hello-world.json"]

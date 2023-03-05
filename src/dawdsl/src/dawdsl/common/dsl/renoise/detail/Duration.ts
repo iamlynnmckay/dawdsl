@@ -1,9 +1,6 @@
 import * as std from "../../../std";
 import { Assert } from "../../../std/Assert";
-export class Duration {}
-/*
 
-///
 export class Duration {
   private static get_number_of_beats_per_pattern(
     lines_per_pattern: number,
@@ -196,6 +193,3 @@ export class Duration {
     return Duration.parse_duration_syntactic_sugar(syntactic_sugar, context);
   }
 }
-
-///
-*/

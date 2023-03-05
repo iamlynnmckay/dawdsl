@@ -48,12 +48,11 @@ const RenoiseLua: Specification = [
           // by default there is 1 patterns
           const default_number_of_patterns = 1;
           if (pattern + 1 > default_number_of_patterns) {
-            o.lua.push(
-              Renoise.song.sequencer.insert_new_pattern_at(pattern + 1)
-            );
+            o.lua.push(Renoise.song.sequencer.insert_new_pattern_at(pattern));
           }
           o.lua.push(Renoise.song.patterns.clear(pattern));
           Object.entries(v).forEach(([k, v]: [string, Any]) => {
+            console.log(`<>:${k}`);
             o.lua.push(Renoise.song.patterns[k](pattern, v));
           });
           return v;

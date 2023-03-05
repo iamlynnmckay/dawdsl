@@ -39,7 +39,8 @@ const RenoiseLua: { [_: string]: Any } = {
     },
 
     patterns: {
-      clear: (pattern: number) => `renoise.song().patterns[${pattern}]:clear()`,
+      clear: (pattern: number) =>
+        `renoise.song().patterns[${pattern + 1}]:clear()`,
       number_of_lines: (pattern: number, value: number) =>
         `renoise.song().patterns[${pattern + 1}].number_of_lines = ${value}`,
       tracks: {
