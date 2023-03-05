@@ -6,15 +6,13 @@ export class Dawdsl {
     this.memory = {};
   }
   public api() {
-    Library("renoise")({ program: {} });
+    console.log(Library("renoise")({ program: {} }));
   }
   public gui() {
-    /*
     const parent = document.getElementById("dawdsl")!;
-    const child = new Main(["dawdsl", "main"]);
-    parent.innerHTML = ''
-    parent.appendChild(child.getElement());
-    child.build(this.memory);
-    */
+    //const child = new Main(["dawdsl", "main"]);
+    parent.innerHTML = "hello world";
+    //parent.appendChild(child.getElement());
+    //child.build(this.memory);
   }
 }

@@ -63,13 +63,14 @@ export class Query {
     return shallowQueryRecursive(keys, object, callback, [], object, 0);
   }
   static deepQuery(specification: Module, program: Value): Value {
+    let result = program;
     Visitor.deepVisitor(
       specification,
       (keys: Property[], value: Module, _: Module): Any => {
         if (typeof value === "function") {
-          program = Query.shallowQuery(
+          result = Query.shallowQuery(
             keys as Key[],
-            program,
+            result,
             value as DeepCallback
           );
         } else {
@@ -77,6 +78,6 @@ export class Query {
         }
       }
     );
-    return program;
+    return result;
   }
 }

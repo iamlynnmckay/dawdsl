@@ -10,14 +10,14 @@ import { SensibleDefaults } from "./SensibleDefaults";
 import { TranslateSyntacticSugar } from "./TranslateSyntacticSugar";
 
 const Compiler: Specification = [
-  NonEmptyDefaults,
-  SensibleDefaults,
-  RenoiseLua,
+  AfterRenoiseLua,
   BeforeRenoiseLua,
   CallBuiltInFunctions,
-  AfterRenoiseLua,
   ExpandEventPropertyArrays,
   FlattenEventArrays,
+  NonEmptyDefaults,
+  RenoiseLua,
+  SensibleDefaults,
   TranslateSyntacticSugar,
 ].flat();
 
